@@ -1,0 +1,1269 @@
+<!DOCTYPE html>
+<html lang="ar" dir="ltr">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Wanase وناسة — Cafe & GameZone</title>
+<link href="https://fonts.googleapis.com/css2?family=Cinzel+Decorative:wght@400;700;900&family=Rajdhani:wght@300;400;500;600;700&family=Noto+Kufi+Arabic:wght@300;400;600;700;900&display=swap" rel="stylesheet">
+<style>
+  *, *::before, *::after { margin: 0; padding: 0; box-sizing: border-box; }
+
+  :root {
+    --gold: #D4A843;
+    --gold-light: #F0C965;
+    --gold-dark: #8B6914;
+    --ember: #E8521A;
+    --teal: #00C9A7;
+    --purple: #8B5CF6;
+    --bg-deep: #080810;
+    --bg-dark: #0D0D1A;
+    --bg-card: #111128;
+    --bg-card2: #14142E;
+    --text-primary: #F0EDE4;
+    --text-muted: #8A8A9A;
+    --border: rgba(212, 168, 67, 0.2);
+  }
+
+  html { scroll-behavior: smooth; }
+
+  body {
+    font-family: 'Rajdhani', sans-serif;
+    background: var(--bg-deep);
+    color: var(--text-primary);
+    overflow-x: hidden;
+    cursor: default;
+  }
+
+  /* Custom scrollbar */
+  ::-webkit-scrollbar { width: 4px; }
+  ::-webkit-scrollbar-track { background: var(--bg-deep); }
+  ::-webkit-scrollbar-thumb { background: var(--gold-dark); border-radius: 2px; }
+
+  /* ── NAV ── */
+  nav {
+    position: fixed; top: 0; left: 0; right: 0; z-index: 100;
+    display: flex; align-items: center; justify-content: space-between;
+    padding: 1.2rem 4rem;
+    background: rgba(8,8,16,0.85);
+    backdrop-filter: blur(16px);
+    border-bottom: 1px solid var(--border);
+  }
+
+  .nav-logo {
+    display: flex; flex-direction: column; line-height: 1;
+  }
+  .nav-logo .en {
+    font-family: 'Cinzel Decorative', serif;
+    font-size: 1.1rem; font-weight: 700;
+    color: var(--gold);
+    letter-spacing: 0.15em;
+  }
+  .nav-logo .ar {
+    font-family: 'Noto Kufi Arabic', sans-serif;
+    font-size: 0.85rem; font-weight: 400;
+    color: var(--gold-light);
+    opacity: 0.75;
+    text-align: right;
+  }
+
+  .nav-links {
+    display: flex; gap: 2.5rem; list-style: none;
+  }
+  .nav-links a {
+    text-decoration: none;
+    font-size: 0.85rem; font-weight: 600;
+    letter-spacing: 0.15em; text-transform: uppercase;
+    color: var(--text-muted);
+    transition: color 0.3s;
+    position: relative;
+  }
+  .nav-links a::after {
+    content: ''; position: absolute; bottom: -4px; left: 0; right: 0;
+    height: 1px; background: var(--gold);
+    transform: scaleX(0); transition: transform 0.3s;
+  }
+  .nav-links a:hover { color: var(--gold); }
+  .nav-links a:hover::after { transform: scaleX(1); }
+
+  .nav-cta {
+    font-family: 'Rajdhani', sans-serif;
+    font-size: 0.8rem; font-weight: 700;
+    letter-spacing: 0.2em; text-transform: uppercase;
+    background: transparent;
+    border: 1px solid var(--gold);
+    color: var(--gold);
+    padding: 0.55rem 1.4rem;
+    cursor: pointer;
+    transition: all 0.3s;
+    clip-path: polygon(8px 0%, 100% 0%, calc(100% - 8px) 100%, 0% 100%);
+  }
+  .nav-cta:hover {
+    background: var(--gold);
+    color: var(--bg-deep);
+  }
+
+  /* ── HERO ── */
+  .hero {
+    min-height: 100vh;
+    display: flex; flex-direction: column; align-items: center; justify-content: center;
+    position: relative;
+    overflow: hidden;
+    padding: 0 2rem;
+    text-align: center;
+  }
+
+  .hero-bg {
+    position: absolute; inset: 0;
+    background:
+      radial-gradient(ellipse 80% 60% at 50% 70%, rgba(212,168,67,0.06) 0%, transparent 70%),
+      radial-gradient(ellipse 40% 30% at 20% 50%, rgba(139,92,246,0.08) 0%, transparent 60%),
+      radial-gradient(ellipse 40% 30% at 80% 50%, rgba(0,201,167,0.06) 0%, transparent 60%);
+  }
+
+  .hero-grid {
+    position: absolute; inset: 0;
+    background-image:
+      linear-gradient(rgba(212,168,67,0.04) 1px, transparent 1px),
+      linear-gradient(90deg, rgba(212,168,67,0.04) 1px, transparent 1px);
+    background-size: 60px 60px;
+    mask-image: radial-gradient(ellipse 80% 80% at 50% 50%, black 30%, transparent 80%);
+  }
+
+  .hero-ornament {
+    width: 300px; height: 300px;
+    position: absolute;
+    border: 1px solid rgba(212,168,67,0.08);
+    border-radius: 50%;
+    animation: spin-slow 30s linear infinite;
+  }
+  .hero-ornament::before {
+    content: ''; position: absolute; inset: 20px;
+    border: 1px solid rgba(212,168,67,0.05);
+    border-radius: 50%;
+  }
+  .hero-ornament::after {
+    content: ''; position: absolute; inset: 50px;
+    border: 1px solid rgba(212,168,67,0.03);
+    border-radius: 50%;
+  }
+
+  @keyframes spin-slow {
+    from { transform: rotate(0deg); }
+    to { transform: rotate(360deg); }
+  }
+
+  .hero-badge {
+    font-size: 0.7rem; font-weight: 700;
+    letter-spacing: 0.35em; text-transform: uppercase;
+    color: var(--teal);
+    border: 1px solid rgba(0,201,167,0.3);
+    padding: 0.4rem 1.2rem;
+    margin-bottom: 2rem;
+    display: inline-block;
+    clip-path: polygon(6px 0%, 100% 0%, calc(100% - 6px) 100%, 0% 100%);
+    animation: fadeInDown 1s ease both;
+  }
+
+  .hero-title {
+    font-family: 'Cinzel Decorative', serif;
+    font-size: clamp(3rem, 8vw, 7rem);
+    font-weight: 900;
+    line-height: 0.9;
+    color: var(--gold);
+    text-shadow: 0 0 80px rgba(212,168,67,0.3);
+    animation: fadeInUp 1s ease 0.2s both;
+    position: relative;
+  }
+
+  .hero-title-ar {
+    font-family: 'Noto Kufi Arabic', sans-serif;
+    font-size: clamp(1.5rem, 4vw, 3rem);
+    font-weight: 300;
+    color: var(--gold-light);
+    opacity: 0.6;
+    margin-top: 0.5rem;
+    letter-spacing: 0.3em;
+    animation: fadeInUp 1s ease 0.4s both;
+  }
+
+  .hero-divider {
+    display: flex; align-items: center; gap: 1rem;
+    margin: 2rem 0;
+    animation: fadeIn 1s ease 0.6s both;
+  }
+  .hero-divider span { width: 60px; height: 1px; background: var(--gold); opacity: 0.4; }
+  .hero-divider .dot { width: 6px; height: 6px; background: var(--gold); transform: rotate(45deg); flex-shrink: 0; }
+
+  .hero-sub {
+    font-size: clamp(0.9rem, 1.5vw, 1.1rem);
+    font-weight: 400;
+    letter-spacing: 0.12em;
+    color: var(--text-muted);
+    max-width: 500px;
+    line-height: 1.7;
+    animation: fadeInUp 1s ease 0.7s both;
+  }
+
+  .hero-buttons {
+    display: flex; gap: 1rem; margin-top: 2.5rem;
+    animation: fadeInUp 1s ease 0.9s both;
+  }
+  .btn-primary {
+    font-family: 'Rajdhani', sans-serif;
+    font-size: 0.85rem; font-weight: 700;
+    letter-spacing: 0.2em; text-transform: uppercase;
+    background: var(--gold);
+    color: var(--bg-deep);
+    border: none; padding: 0.9rem 2.5rem;
+    cursor: pointer; transition: all 0.3s;
+    clip-path: polygon(10px 0%, 100% 0%, calc(100% - 10px) 100%, 0% 100%);
+    text-decoration: none; display: inline-block;
+  }
+  .btn-primary:hover {
+    background: var(--gold-light);
+    transform: translateY(-2px);
+  }
+  .btn-outline {
+    font-family: 'Rajdhani', sans-serif;
+    font-size: 0.85rem; font-weight: 700;
+    letter-spacing: 0.2em; text-transform: uppercase;
+    background: transparent;
+    color: var(--text-primary);
+    border: 1px solid rgba(240,237,228,0.2);
+    padding: 0.9rem 2.5rem;
+    cursor: pointer; transition: all 0.3s;
+    clip-path: polygon(10px 0%, 100% 0%, calc(100% - 10px) 100%, 0% 100%);
+    text-decoration: none; display: inline-block;
+  }
+  .btn-outline:hover {
+    border-color: var(--gold);
+    color: var(--gold);
+    transform: translateY(-2px);
+  }
+
+  .hero-scroll {
+    position: absolute; bottom: 2rem;
+    display: flex; flex-direction: column; align-items: center; gap: 0.5rem;
+    animation: fadeIn 1s ease 1.5s both;
+  }
+  .hero-scroll span {
+    font-size: 0.65rem; letter-spacing: 0.3em; text-transform: uppercase;
+    color: var(--text-muted);
+  }
+  .scroll-line {
+    width: 1px; height: 40px; background: linear-gradient(to bottom, var(--gold), transparent);
+    animation: scrollPulse 2s ease-in-out infinite;
+  }
+  @keyframes scrollPulse {
+    0%, 100% { opacity: 0.3; transform: scaleY(1); }
+    50% { opacity: 1; transform: scaleY(1.2); }
+  }
+
+  /* ── SECTION COMMONS ── */
+  section { padding: 7rem 4rem; }
+
+  .section-label {
+    font-size: 0.65rem; font-weight: 700;
+    letter-spacing: 0.4em; text-transform: uppercase;
+    color: var(--teal);
+    margin-bottom: 0.8rem;
+  }
+  .section-title {
+    font-family: 'Cinzel Decorative', serif;
+    font-size: clamp(1.8rem, 4vw, 3rem);
+    font-weight: 700;
+    color: var(--gold);
+    line-height: 1.1;
+  }
+  .section-title-ar {
+    font-family: 'Noto Kufi Arabic', sans-serif;
+    font-size: clamp(0.9rem, 2vw, 1.2rem);
+    font-weight: 300;
+    color: var(--gold-light);
+    opacity: 0.5;
+    letter-spacing: 0.2em;
+    margin-top: 0.3rem;
+  }
+  .section-desc {
+    color: var(--text-muted);
+    font-size: 1rem;
+    line-height: 1.8;
+    max-width: 500px;
+    margin-top: 1rem;
+  }
+
+  /* ── VIBE SECTION ── */
+  .vibe-section {
+    background: var(--bg-dark);
+    position: relative;
+    overflow: hidden;
+  }
+  .vibe-section::before {
+    content: 'وناسة';
+    font-family: 'Noto Kufi Arabic', sans-serif;
+    font-size: 18rem; font-weight: 900;
+    position: absolute; right: -3rem; top: 50%;
+    transform: translateY(-50%);
+    color: rgba(212,168,67,0.025);
+    line-height: 1;
+    pointer-events: none;
+  }
+
+  .vibe-grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 4rem;
+    align-items: center;
+    max-width: 1200px; margin: 0 auto;
+  }
+
+  .vibe-cards {
+    display: grid; grid-template-columns: 1fr 1fr; gap: 1rem;
+  }
+
+  .vibe-card {
+    background: var(--bg-card);
+    border: 1px solid var(--border);
+    padding: 1.8rem 1.5rem;
+    position: relative;
+    transition: all 0.3s;
+    clip-path: polygon(0 0, calc(100% - 12px) 0, 100% 12px, 100% 100%, 12px 100%, 0 calc(100% - 12px));
+  }
+  .vibe-card:hover {
+    border-color: var(--gold);
+    transform: translateY(-4px);
+    background: var(--bg-card2);
+  }
+  .vibe-card .icon {
+    font-size: 2rem; margin-bottom: 1rem;
+  }
+  .vibe-card h3 {
+    font-family: 'Cinzel Decorative', serif;
+    font-size: 0.85rem;
+    color: var(--gold);
+    letter-spacing: 0.1em;
+    margin-bottom: 0.5rem;
+  }
+  .vibe-card p {
+    font-size: 0.85rem;
+    color: var(--text-muted);
+    line-height: 1.6;
+  }
+  .vibe-card .accent-line {
+    position: absolute; top: 0; left: 0; right: 0;
+    height: 2px;
+    background: linear-gradient(90deg, transparent, var(--gold), transparent);
+    opacity: 0;
+    transition: opacity 0.3s;
+  }
+  .vibe-card:hover .accent-line { opacity: 1; }
+
+  /* ── MENU SECTION ── */
+  .menu-section {
+    background: var(--bg-deep);
+  }
+  .menu-header {
+    text-align: center; margin-bottom: 4rem;
+  }
+
+  .menu-tabs {
+    display: flex; justify-content: center; gap: 0; margin: 2rem 0 3rem;
+    border: 1px solid var(--border);
+    width: fit-content; margin-left: auto; margin-right: auto;
+    overflow: hidden;
+  }
+  .menu-tab {
+    font-family: 'Rajdhani', sans-serif;
+    font-size: 0.8rem; font-weight: 700;
+    letter-spacing: 0.2em; text-transform: uppercase;
+    background: transparent; border: none;
+    color: var(--text-muted);
+    padding: 0.75rem 1.8rem;
+    cursor: pointer; transition: all 0.3s;
+    border-right: 1px solid var(--border);
+    position: relative;
+  }
+  .menu-tab:last-child { border-right: none; }
+  .menu-tab.active {
+    background: rgba(212,168,67,0.1);
+    color: var(--gold);
+  }
+
+  .menu-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
+    gap: 1.5rem;
+    max-width: 1200px; margin: 0 auto;
+  }
+  .menu-item {
+    background: var(--bg-card);
+    border: 1px solid var(--border);
+    padding: 1.5rem;
+    display: flex; justify-content: space-between; align-items: flex-start;
+    transition: all 0.3s;
+    position: relative;
+    overflow: hidden;
+  }
+  .menu-item::before {
+    content: ''; position: absolute; left: 0; top: 0; bottom: 0;
+    width: 2px; background: var(--gold);
+    transform: scaleY(0); transition: transform 0.3s;
+    transform-origin: bottom;
+  }
+  .menu-item:hover::before { transform: scaleY(1); }
+  .menu-item:hover { background: var(--bg-card2); border-color: rgba(212,168,67,0.35); }
+
+  .menu-info h4 {
+    font-family: 'Rajdhani', sans-serif;
+    font-size: 1.05rem; font-weight: 600;
+    color: var(--text-primary);
+    letter-spacing: 0.05em;
+    margin-bottom: 0.25rem;
+  }
+  .menu-info h4 .name-ar {
+    font-family: 'Noto Kufi Arabic', sans-serif;
+    font-size: 0.75rem; font-weight: 400;
+    color: var(--text-muted);
+    display: block;
+  }
+  .menu-info p {
+    font-size: 0.8rem; color: var(--text-muted);
+  }
+  .menu-price {
+    font-family: 'Cinzel Decorative', serif;
+    font-size: 1.1rem; font-weight: 700;
+    color: var(--gold);
+    white-space: nowrap;
+  }
+
+  /* ── GAMING SECTION ── */
+  .gaming-section {
+    background: var(--bg-dark);
+    position: relative; overflow: hidden;
+  }
+  .gaming-section::before {
+    content: '';
+    position: absolute; top: 0; left: 0; right: 0;
+    height: 1px;
+    background: linear-gradient(90deg, transparent, var(--teal), transparent);
+  }
+
+  .gaming-layout {
+    display: grid; grid-template-columns: 1fr 1.3fr;
+    gap: 5rem; align-items: center;
+    max-width: 1200px; margin: 0 auto;
+  }
+
+  .station-grid {
+    display: grid; grid-template-columns: 1fr 1fr; gap: 1rem;
+  }
+
+  .station-card {
+    background: var(--bg-card);
+    border: 1px solid rgba(0,201,167,0.15);
+    padding: 1.5rem;
+    text-align: center;
+    transition: all 0.35s;
+    clip-path: polygon(0 0, calc(100% - 10px) 0, 100% 10px, 100% 100%, 10px 100%, 0 calc(100% - 10px));
+    cursor: default;
+  }
+  .station-card:hover {
+    border-color: var(--teal);
+    background: rgba(0,201,167,0.05);
+    transform: scale(1.03);
+  }
+  .station-card .station-icon { font-size: 2.5rem; margin-bottom: 0.75rem; }
+  .station-card h3 {
+    font-family: 'Rajdhani', sans-serif;
+    font-size: 1rem; font-weight: 700;
+    letter-spacing: 0.1em; text-transform: uppercase;
+    color: var(--teal);
+    margin-bottom: 0.3rem;
+  }
+  .station-card p { font-size: 0.8rem; color: var(--text-muted); }
+
+  .station-card.featured {
+    grid-column: 1 / -1;
+    border-color: rgba(139,92,246,0.3);
+    background: rgba(139,92,246,0.05);
+    clip-path: none;
+    display: flex; align-items: center; gap: 1.5rem; text-align: left;
+  }
+  .station-card.featured:hover {
+    border-color: var(--purple);
+    background: rgba(139,92,246,0.1);
+  }
+  .station-card.featured h3 { color: var(--purple); }
+
+  .pricing-table {
+    border: 1px solid var(--border);
+    overflow: hidden;
+  }
+  .pricing-row {
+    display: grid; grid-template-columns: 1fr auto auto;
+    padding: 0.9rem 1.2rem;
+    border-bottom: 1px solid var(--border);
+    align-items: center;
+    transition: background 0.2s;
+  }
+  .pricing-row:last-child { border-bottom: none; }
+  .pricing-row:hover { background: rgba(212,168,67,0.04); }
+  .pricing-row .pkg {
+    font-weight: 600; font-size: 0.95rem;
+    color: var(--text-primary);
+    letter-spacing: 0.05em;
+  }
+  .pricing-row .pkg small {
+    display: block;
+    font-size: 0.75rem; font-weight: 400;
+    color: var(--text-muted);
+  }
+  .pricing-row .dur {
+    font-size: 0.8rem; color: var(--text-muted);
+    text-align: center; padding: 0 1.5rem;
+  }
+  .pricing-row .prc {
+    font-family: 'Cinzel Decorative', serif;
+    font-size: 1rem; font-weight: 700;
+    color: var(--gold);
+    text-align: right;
+  }
+  .pricing-row.highlight .pkg { color: var(--teal); }
+  .pricing-row.highlight { background: rgba(0,201,167,0.03); }
+
+  /* ── GALLERY ── */
+  .gallery-section {
+    background: var(--bg-deep);
+    padding: 5rem 4rem;
+  }
+  .gallery-header { text-align: center; margin-bottom: 3rem; }
+
+  .gallery-mosaic {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    grid-template-rows: repeat(2, 200px);
+    gap: 1rem;
+    max-width: 1200px; margin: 0 auto;
+  }
+  .g-tile {
+    overflow: hidden;
+    display: flex; align-items: center; justify-content: center;
+    font-size: 3rem;
+    background: var(--bg-card);
+    border: 1px solid var(--border);
+    position: relative;
+    transition: all 0.4s;
+    cursor: pointer;
+  }
+  .g-tile:hover { border-color: var(--gold); transform: scale(0.98); }
+  .g-tile:hover .g-label { opacity: 1; }
+
+  .g-tile-1 { grid-column: 1 / 3; grid-row: 1; background: linear-gradient(135deg, #1a0a00 0%, #0d0d1a 100%); }
+  .g-tile-2 { grid-column: 3; background: linear-gradient(135deg, #000a1a 0%, #0d0d1a 100%); }
+  .g-tile-3 { grid-column: 4; background: linear-gradient(135deg, #0a001a 0%, #0d0d1a 100%); }
+  .g-tile-4 { grid-column: 1; grid-row: 2; background: linear-gradient(135deg, #001a14 0%, #0d0d1a 100%); }
+  .g-tile-5 { grid-column: 2 / 4; grid-row: 2; background: linear-gradient(135deg, #1a1000 0%, #0d0d1a 100%); }
+  .g-tile-6 { grid-column: 4; grid-row: 2; background: linear-gradient(135deg, #1a0010 0%, #0d0d1a 100%); }
+
+  .g-tile-inner {
+    position: absolute; inset: 0;
+    display: flex; flex-direction: column;
+    align-items: center; justify-content: center;
+    gap: 0.5rem;
+  }
+  .g-tile-icon { font-size: 2.5rem; opacity: 0.8; }
+  .g-tile-text {
+    font-family: 'Rajdhani', sans-serif;
+    font-size: 0.75rem; font-weight: 700;
+    letter-spacing: 0.2em; text-transform: uppercase;
+    color: var(--text-muted);
+  }
+  .g-label {
+    position: absolute; inset: 0;
+    background: rgba(212,168,67,0.08);
+    display: flex; align-items: center; justify-content: center;
+    opacity: 0; transition: opacity 0.3s;
+    font-family: 'Cinzel Decorative', serif;
+    font-size: 0.75rem; font-weight: 700;
+    color: var(--gold); letter-spacing: 0.2em;
+  }
+
+  /* ── EVENTS ── */
+  .events-section {
+    background: var(--bg-dark);
+    padding: 7rem 4rem;
+  }
+  .events-layout {
+    display: grid; grid-template-columns: auto 1fr;
+    gap: 5rem; align-items: start;
+    max-width: 1200px; margin: 0 auto;
+  }
+
+  .event-list { display: flex; flex-direction: column; gap: 1rem; }
+  .event-item {
+    background: var(--bg-card);
+    border: 1px solid var(--border);
+    padding: 1.2rem 1.5rem;
+    display: grid; grid-template-columns: auto 1fr auto;
+    gap: 1.2rem; align-items: center;
+    transition: all 0.3s;
+    cursor: pointer;
+  }
+  .event-item:hover { border-color: var(--gold); background: var(--bg-card2); }
+
+  .event-date {
+    text-align: center; min-width: 55px;
+    border-right: 1px solid var(--border);
+    padding-right: 1.2rem;
+  }
+  .event-date .day {
+    font-family: 'Cinzel Decorative', serif;
+    font-size: 1.8rem; font-weight: 700;
+    color: var(--gold); line-height: 1;
+  }
+  .event-date .month {
+    font-size: 0.65rem; font-weight: 700;
+    letter-spacing: 0.2em; text-transform: uppercase;
+    color: var(--text-muted);
+  }
+
+  .event-info h4 {
+    font-size: 1rem; font-weight: 600;
+    color: var(--text-primary); letter-spacing: 0.05em;
+    margin-bottom: 0.2rem;
+  }
+  .event-info p { font-size: 0.8rem; color: var(--text-muted); }
+
+  .event-tag {
+    font-size: 0.65rem; font-weight: 700;
+    letter-spacing: 0.15em; text-transform: uppercase;
+    padding: 0.3rem 0.8rem;
+    border: 1px solid;
+    white-space: nowrap;
+  }
+  .event-tag.gaming { color: var(--teal); border-color: rgba(0,201,167,0.4); }
+  .event-tag.cafe { color: var(--gold); border-color: rgba(212,168,67,0.4); }
+  .event-tag.special { color: var(--purple); border-color: rgba(139,92,246,0.4); }
+
+  /* ── CONTACT / LOCATION ── */
+  .contact-section {
+    background: var(--bg-deep);
+    padding: 7rem 4rem;
+    position: relative;
+  }
+  .contact-section::before {
+    content: '';
+    position: absolute; top: 0; left: 0; right: 0;
+    height: 1px;
+    background: linear-gradient(90deg, transparent, var(--gold), transparent);
+  }
+
+  .contact-layout {
+    display: grid; grid-template-columns: 1fr 1fr;
+    gap: 5rem; max-width: 1200px; margin: 0 auto;
+  }
+
+  .contact-info { display: flex; flex-direction: column; gap: 2rem; }
+  .info-block {}
+  .info-block .label {
+    font-size: 0.65rem; font-weight: 700;
+    letter-spacing: 0.35em; text-transform: uppercase;
+    color: var(--teal); margin-bottom: 0.4rem;
+  }
+  .info-block .value {
+    font-size: 1rem; font-weight: 600;
+    color: var(--text-primary); letter-spacing: 0.05em;
+    line-height: 1.6;
+  }
+
+  .hours-grid {
+    display: grid; grid-template-columns: 1fr 1fr; gap: 0;
+    border: 1px solid var(--border);
+  }
+  .hours-row {
+    display: flex; justify-content: space-between;
+    padding: 0.6rem 1rem;
+    border-bottom: 1px solid var(--border);
+    font-size: 0.85rem;
+  }
+  .hours-row:nth-child(even) { background: rgba(212,168,67,0.02); }
+  .hours-row .day-name { color: var(--text-muted); }
+  .hours-row .time { color: var(--text-primary); font-weight: 500; }
+
+  .map-placeholder {
+    background: var(--bg-card);
+    border: 1px solid var(--border);
+    height: 100%; min-height: 350px;
+    display: flex; flex-direction: column;
+    align-items: center; justify-content: center;
+    gap: 1rem; position: relative; overflow: hidden;
+    clip-path: polygon(0 0, calc(100% - 20px) 0, 100% 20px, 100% 100%, 20px 100%, 0 calc(100% - 20px));
+  }
+  .map-placeholder::before {
+    content: '';
+    position: absolute; inset: 0;
+    background-image:
+      linear-gradient(rgba(212,168,67,0.06) 1px, transparent 1px),
+      linear-gradient(90deg, rgba(212,168,67,0.06) 1px, transparent 1px);
+    background-size: 30px 30px;
+  }
+  .map-pin { font-size: 3rem; position: relative; z-index: 1; }
+  .map-placeholder h3 {
+    font-family: 'Cinzel Decorative', serif;
+    font-size: 0.9rem; font-weight: 700;
+    color: var(--gold); letter-spacing: 0.15em;
+    position: relative; z-index: 1;
+  }
+  .map-placeholder p {
+    font-size: 0.8rem; color: var(--text-muted);
+    text-align: center; max-width: 200px; line-height: 1.6;
+    position: relative; z-index: 1;
+  }
+  .map-btn {
+    font-family: 'Rajdhani', sans-serif;
+    font-size: 0.75rem; font-weight: 700;
+    letter-spacing: 0.2em; text-transform: uppercase;
+    background: transparent;
+    border: 1px solid var(--gold);
+    color: var(--gold); padding: 0.6rem 1.5rem;
+    cursor: pointer; transition: all 0.3s;
+    position: relative; z-index: 1;
+    clip-path: polygon(6px 0%, 100% 0%, calc(100% - 6px) 100%, 0% 100%);
+  }
+  .map-btn:hover { background: var(--gold); color: var(--bg-deep); }
+
+  /* ── FOOTER ── */
+  footer {
+    background: var(--bg-card);
+    border-top: 1px solid var(--border);
+    padding: 3rem 4rem 2rem;
+  }
+  .footer-inner {
+    display: grid; grid-template-columns: 1.5fr 1fr 1fr;
+    gap: 3rem; max-width: 1200px; margin: 0 auto 3rem;
+  }
+  .footer-brand .logo-en {
+    font-family: 'Cinzel Decorative', serif;
+    font-size: 1.4rem; font-weight: 700; color: var(--gold);
+    letter-spacing: 0.1em;
+  }
+  .footer-brand .logo-ar {
+    font-family: 'Noto Kufi Arabic', sans-serif;
+    font-size: 0.9rem; color: var(--gold-light); opacity: 0.5;
+  }
+  .footer-brand p {
+    font-size: 0.85rem; color: var(--text-muted);
+    line-height: 1.7; margin-top: 1rem; max-width: 250px;
+  }
+  .footer-col h5 {
+    font-family: 'Rajdhani', sans-serif;
+    font-size: 0.7rem; font-weight: 700;
+    letter-spacing: 0.3em; text-transform: uppercase;
+    color: var(--gold); margin-bottom: 1rem;
+  }
+  .footer-col ul { list-style: none; }
+  .footer-col ul li { margin-bottom: 0.5rem; }
+  .footer-col ul a {
+    text-decoration: none; font-size: 0.85rem;
+    color: var(--text-muted); transition: color 0.2s;
+  }
+  .footer-col ul a:hover { color: var(--text-primary); }
+
+  .footer-bottom {
+    max-width: 1200px; margin: 0 auto;
+    border-top: 1px solid var(--border);
+    padding-top: 1.5rem;
+    display: flex; justify-content: space-between; align-items: center;
+    font-size: 0.75rem; color: var(--text-muted);
+    letter-spacing: 0.1em;
+  }
+
+  .social-icons { display: flex; gap: 0.8rem; }
+  .social-icon {
+    width: 36px; height: 36px;
+    border: 1px solid var(--border);
+    display: flex; align-items: center; justify-content: center;
+    font-size: 1rem; cursor: pointer; transition: all 0.3s;
+    color: var(--text-muted);
+    text-decoration: none;
+  }
+  .social-icon:hover {
+    border-color: var(--gold); color: var(--gold);
+    background: rgba(212,168,67,0.06);
+  }
+
+  /* ── ANIMATIONS ── */
+  @keyframes fadeInDown {
+    from { opacity: 0; transform: translateY(-20px); }
+    to { opacity: 1; transform: translateY(0); }
+  }
+  @keyframes fadeInUp {
+    from { opacity: 0; transform: translateY(30px); }
+    to { opacity: 1; transform: translateY(0); }
+  }
+  @keyframes fadeIn {
+    from { opacity: 0; }
+    to { opacity: 1; }
+  }
+
+  /* Scroll reveal */
+  .reveal {
+    opacity: 0; transform: translateY(30px);
+    transition: opacity 0.7s ease, transform 0.7s ease;
+  }
+  .reveal.visible { opacity: 1; transform: translateY(0); }
+
+  /* ── RESPONSIVE ── */
+  @media (max-width: 900px) {
+    nav { padding: 1rem 1.5rem; }
+    .nav-links { display: none; }
+    section { padding: 4rem 1.5rem; }
+    .vibe-grid, .gaming-layout, .contact-layout, .events-layout { grid-template-columns: 1fr; gap: 2.5rem; }
+    .footer-inner { grid-template-columns: 1fr; gap: 2rem; }
+    .gallery-mosaic { grid-template-columns: 1fr 1fr; grid-template-rows: auto; }
+    .g-tile-1, .g-tile-5 { grid-column: 1 / -1; }
+    .g-tile-2, .g-tile-3, .g-tile-4, .g-tile-6 { grid-column: auto; }
+    .hero-buttons { flex-direction: column; align-items: center; }
+    .menu-tabs { flex-wrap: wrap; }
+  }
+</style>
+</head>
+<body>
+
+<!-- NAV -->
+<nav>
+  <div class="nav-logo">
+    <span class="en">WANASE</span>
+    <span class="ar">وناسة</span>
+  </div>
+  <ul class="nav-links">
+    <li><a href="#vibe">About</a></li>
+    <li><a href="#menu">Menu</a></li>
+    <li><a href="#gaming">Gaming</a></li>
+    <li><a href="#events">Events</a></li>
+    <li><a href="#contact">Visit Us</a></li>
+  </ul>
+  <button class="nav-cta" onclick="document.getElementById('contact').scrollIntoView({behavior:'smooth'})">Book Now</button>
+</nav>
+
+<!-- HERO -->
+<section class="hero" id="home">
+  <div class="hero-bg"></div>
+  <div class="hero-grid"></div>
+  <div class="hero-ornament"></div>
+
+  <div class="hero-badge">Cafe · GameZone · Experience</div>
+
+  <h1 class="hero-title">WANASE</h1>
+  <div class="hero-title-ar">وناسة</div>
+
+  <div class="hero-divider">
+    <span></span>
+    <div class="dot"></div>
+    <span></span>
+  </div>
+
+  <p class="hero-sub">Where your coffee meets your controller. The finest brews, the boldest games — your ultimate hangout destination.</p>
+
+  <div class="hero-buttons">
+    <a href="#menu" class="btn-primary">Explore Menu</a>
+    <a href="#gaming" class="btn-outline">Gaming Zone</a>
+  </div>
+
+  <div class="hero-scroll">
+    <span>Scroll</span>
+    <div class="scroll-line"></div>
+  </div>
+</section>
+
+
+<!-- VIBE SECTION -->
+<section class="vibe-section" id="vibe">
+  <div class="vibe-grid">
+    <div class="reveal">
+      <div class="section-label">The Experience</div>
+      <h2 class="section-title">One Place,<br>Two Worlds</h2>
+      <div class="section-title-ar">عالمان تحت سقف واحد</div>
+      <p class="section-desc">Wanase is where great coffee and competitive gaming exist in perfect harmony. Chill out with a specialty brew or dive into intense multiplayer sessions — we built this space for you.</p>
+    </div>
+    <div class="vibe-cards reveal">
+      <div class="vibe-card">
+        <div class="accent-line"></div>
+        <div class="icon">☕</div>
+        <h3>Specialty Coffee</h3>
+        <p>Single-origin beans, crafted by passionate baristas every cup, every time.</p>
+      </div>
+      <div class="vibe-card">
+        <div class="accent-line"></div>
+        <div class="icon">🎮</div>
+        <h3>Gaming Stations</h3>
+        <p>Latest consoles, high-refresh PC setups, and VR ready for your challenge.</p>
+      </div>
+      <div class="vibe-card">
+        <div class="accent-line"></div>
+        <div class="icon">🍽️</div>
+        <h3>Food & Snacks</h3>
+        <p>Freshly prepared bites designed to fuel long gaming sessions.</p>
+      </div>
+      <div class="vibe-card">
+        <div class="accent-line"></div>
+        <div class="icon">🏆</div>
+        <h3>Tournaments</h3>
+        <p>Weekly competitions with real prizes. Show the arena what you've got.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+
+<!-- MENU SECTION -->
+<section class="menu-section" id="menu">
+  <div class="menu-header reveal">
+    <div class="section-label">Food & Drinks</div>
+    <h2 class="section-title">Our Menu</h2>
+    <div class="section-title-ar">قائمتنا</div>
+  </div>
+
+  <div class="menu-tabs">
+    <button class="menu-tab active" onclick="showTab('coffee', this)">Coffee</button>
+    <button class="menu-tab" onclick="showTab('cold', this)">Cold Drinks</button>
+    <button class="menu-tab" onclick="showTab('food', this)">Bites</button>
+    <button class="menu-tab" onclick="showTab('shisha', this)">Shisha</button>
+  </div>
+
+  <div class="menu-grid" id="menu-items">
+    <!-- populated by JS -->
+  </div>
+</section>
+
+
+<!-- GAMING SECTION -->
+<section class="gaming-section" id="gaming">
+  <div class="gaming-layout">
+    <div class="reveal">
+      <div class="section-label">Game Zone</div>
+      <h2 class="section-title">Level Up<br>Your Game</h2>
+      <div class="section-title-ar">استعد للمواجهة</div>
+      <p class="section-desc">State-of-the-art gaming hardware, ultra-low latency setups, and a community that lives and breathes competitive play.</p>
+
+      <div style="margin-top: 2.5rem;">
+        <div class="section-label" style="margin-bottom: 0.8rem;">Pricing Plans · الأسعار</div>
+        <div class="pricing-table">
+          <div class="pricing-row">
+            <div class="pkg">Quick Round<small>Solo Station</small></div>
+            <div class="dur">1 hr</div>
+            <div class="prc">5K IQD</div>
+          </div>
+          <div class="pricing-row highlight">
+            <div class="pkg">Gamer Pack<small>Best Value</small></div>
+            <div class="dur">3 hrs</div>
+            <div class="prc">12K IQD</div>
+          </div>
+          <div class="pricing-row">
+            <div class="pkg">Night Shift<small>After 9 PM</small></div>
+            <div class="dur">5 hrs</div>
+            <div class="prc">18K IQD</div>
+          </div>
+          <div class="pricing-row">
+            <div class="pkg">Tournament Slot<small>Includes Referee</small></div>
+            <div class="dur">Custom</div>
+            <div class="prc">Ask Us</div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <div class="station-grid reveal">
+      <div class="station-card featured">
+        <div class="station-icon">🖥️</div>
+        <div>
+          <h3>PC Arena</h3>
+          <p>RTX 4070 rigs · 240Hz monitors · Mechanical keyboards · Full surround sound</p>
+        </div>
+      </div>
+      <div class="station-card">
+        <div class="station-icon">🎮</div>
+        <h3>Console</h3>
+        <p>PS5 & Xbox Series X with 4K screens</p>
+      </div>
+      <div class="station-card">
+        <div class="station-icon">🥽</div>
+        <h3>VR Zone</h3>
+        <p>Full immersion virtual reality experiences</p>
+      </div>
+      <div class="station-card">
+        <div class="station-icon">🕹️</div>
+        <h3>Retro Corner</h3>
+        <p>Classic arcade cabinets & nostalgia trips</p>
+      </div>
+      <div class="station-card">
+        <div class="station-icon">🃏</div>
+        <h3>Board Games</h3>
+        <p>50+ tabletop games for groups</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+
+<!-- GALLERY -->
+<section class="gallery-section" id="gallery">
+  <div class="gallery-header reveal">
+    <div class="section-label">The Space</div>
+    <h2 class="section-title">Inside Wanase</h2>
+    <div class="section-title-ar">جولة في المكان</div>
+  </div>
+  <div class="gallery-mosaic reveal">
+    <div class="g-tile g-tile-1">
+      <div class="g-tile-inner">
+        <div class="g-tile-icon">☕</div>
+        <div class="g-tile-text">The Cafe Bar</div>
+      </div>
+      <div class="g-label">Cafe Bar</div>
+    </div>
+    <div class="g-tile g-tile-2">
+      <div class="g-tile-inner">
+        <div class="g-tile-icon">🖥️</div>
+        <div class="g-tile-text">PC Arena</div>
+      </div>
+      <div class="g-label">PC Arena</div>
+    </div>
+    <div class="g-tile g-tile-3">
+      <div class="g-tile-inner">
+        <div class="g-tile-icon">🥽</div>
+        <div class="g-tile-text">VR Zone</div>
+      </div>
+      <div class="g-label">VR Zone</div>
+    </div>
+    <div class="g-tile g-tile-4">
+      <div class="g-tile-inner">
+        <div class="g-tile-icon">🏆</div>
+        <div class="g-tile-text">Trophy Wall</div>
+      </div>
+      <div class="g-label">Trophies</div>
+    </div>
+    <div class="g-tile g-tile-5">
+      <div class="g-tile-inner">
+        <div class="g-tile-icon" style="font-size:3.5rem">🎮</div>
+        <div class="g-tile-text">Console Lounge</div>
+      </div>
+      <div class="g-label">Console Lounge</div>
+    </div>
+    <div class="g-tile g-tile-6">
+      <div class="g-tile-inner">
+        <div class="g-tile-icon">🍕</div>
+        <div class="g-tile-text">Kitchen</div>
+      </div>
+      <div class="g-label">Kitchen</div>
+    </div>
+  </div>
+</section>
+
+
+<!-- EVENTS -->
+<section class="events-section" id="events">
+  <div class="events-layout">
+    <div class="reveal">
+      <div class="section-label">What's On</div>
+      <h2 class="section-title">Events<br>& Tourneys</h2>
+      <div class="section-title-ar">فعاليات وبطولات</div>
+      <p class="section-desc" style="margin-top: 1rem;">From weekly gaming nights to latte art throwdowns — something's always happening at Wanase.</p>
+    </div>
+    <div class="event-list reveal">
+      <div class="event-item">
+        <div class="event-date"><div class="day">06</div><div class="month">Jun</div></div>
+        <div class="event-info">
+          <h4>FIFA Season Finals</h4>
+          <p>Knockout tournament · Top 16 players · Prizes worth 150K IQD</p>
+        </div>
+        <div class="event-tag gaming">Gaming</div>
+      </div>
+      <div class="event-item">
+        <div class="event-date"><div class="day">08</div><div class="month">Jun</div></div>
+        <div class="event-info">
+          <h4>Barista Showcase Night</h4>
+          <p>Watch our head barista craft signature specialty drinks live</p>
+        </div>
+        <div class="event-tag cafe">Cafe</div>
+      </div>
+      <div class="event-item">
+        <div class="event-date"><div class="day">13</div><div class="month">Jun</div></div>
+        <div class="event-info">
+          <h4>Valorant Squad Night</h4>
+          <p>Team of 5 · 3-hour block · Bring your squad, dominate the server</p>
+        </div>
+        <div class="event-tag gaming">Gaming</div>
+      </div>
+      <div class="event-item">
+        <div class="event-date"><div class="day">20</div><div class="month">Jun</div></div>
+        <div class="event-info">
+          <h4>Wanase Anniversary</h4>
+          <p>Special discounts, free entry, live DJ, and surprise prizes all day</p>
+        </div>
+        <div class="event-tag special">Special</div>
+      </div>
+      <div class="event-item">
+        <div class="event-date"><div class="day">27</div><div class="month">Jun</div></div>
+        <div class="event-info">
+          <h4>Retro Game Marathon</h4>
+          <p>Classic consoles only · 6-hour session · NES to PS2 era throwback</p>
+        </div>
+        <div class="event-tag gaming">Gaming</div>
+      </div>
+    </div>
+  </div>
+</section>
+
+
+<!-- CONTACT -->
+<section class="contact-section" id="contact">
+  <div class="contact-layout">
+    <div class="reveal">
+      <div class="section-label">Find Us</div>
+      <h2 class="section-title">Visit Us</h2>
+      <div class="section-title-ar">زورونا</div>
+
+      <div class="contact-info" style="margin-top: 2.5rem;">
+        <div class="info-block">
+          <div class="label">📍 Location</div>
+          <div class="value">Baghdad, Iraq<br>Al-Mansour District, Near the main square</div>
+        </div>
+        <div class="info-block">
+          <div class="label">📞 Contact</div>
+          <div class="value">+964 770 000 0000<br>@wanase.iq</div>
+        </div>
+        <div class="info-block">
+          <div class="label">🕐 Opening Hours</div>
+          <div class="hours-grid">
+            <div class="hours-row"><span class="day-name">Sunday – Thursday</span><span class="time">12:00 – 02:00</span></div>
+            <div class="hours-row"><span class="day-name">Friday</span><span class="time">14:00 – 03:00</span></div>
+            <div class="hours-row"><span class="day-name">Saturday</span><span class="time">12:00 – 03:00</span></div>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div class="map-placeholder reveal">
+      <div class="map-pin">📍</div>
+      <h3>WANASE وناسة</h3>
+      <p>Al-Mansour District, Baghdad, Iraq</p>
+      <button class="map-btn">Open in Maps</button>
+    </div>
+  </div>
+</section>
+
+
+<!-- FOOTER -->
+<footer>
+  <div class="footer-inner">
+    <div class="footer-brand">
+      <div class="logo-en">WANASE</div>
+      <div class="logo-ar">وناسة</div>
+      <p>Baghdad's premier Cafe & GameZone — where coffee culture meets competitive gaming.</p>
+      <div class="social-icons" style="margin-top: 1.2rem;">
+        <a class="social-icon" href="#" title="Instagram">📸</a>
+        <a class="social-icon" href="#" title="TikTok">🎵</a>
+        <a class="social-icon" href="#" title="Twitter/X">𝕏</a>
+        <a class="social-icon" href="#" title="WhatsApp">💬</a>
+      </div>
+    </div>
+    <div class="footer-col">
+      <h5>Navigate</h5>
+      <ul>
+        <li><a href="#vibe">About</a></li>
+        <li><a href="#menu">Menu</a></li>
+        <li><a href="#gaming">Gaming Zone</a></li>
+        <li><a href="#events">Events</a></li>
+        <li><a href="#contact">Contact</a></li>
+      </ul>
+    </div>
+    <div class="footer-col">
+      <h5>Gaming</h5>
+      <ul>
+        <li><a href="#">PC Arena</a></li>
+        <li><a href="#">Console Lounge</a></li>
+        <li><a href="#">VR Experience</a></li>
+        <li><a href="#">Tournaments</a></li>
+        <li><a href="#">Book a Station</a></li>
+      </ul>
+    </div>
+  </div>
+  <div class="footer-bottom">
+    <span>© 2025 Wanase وناسة — All rights reserved.</span>
+    <span>Baghdad, Iraq 🇮🇶</span>
+  </div>
+</footer>
+
+
+<script>
+const menuData = {
+  coffee: [
+    { en: 'Espresso', ar: 'إسبريسو', desc: 'Single or double shot, pure & bold', price: '2,500 IQD' },
+    { en: 'Cappuccino', ar: 'كابتشينو', desc: 'Velvety microfoam, classic balance', price: '3,500 IQD' },
+    { en: 'Flat White', ar: 'فلات وايت', desc: 'Double ristretto with silky milk', price: '4,000 IQD' },
+    { en: 'Wanase Signature', ar: 'قهوة وناسة', desc: 'Cardamom-infused specialty blend', price: '5,000 IQD' },
+    { en: 'Dirty Chai Latte', ar: 'شاي مع إسبريسو', desc: 'Spiced masala chai with espresso', price: '4,500 IQD' },
+    { en: 'Arabic Coffee', ar: 'قهوة عربية', desc: 'Traditional with saffron & dates', price: '3,000 IQD' },
+  ],
+  cold: [
+    { en: 'Iced Matcha Latte', ar: 'ماتشا مثلج', desc: 'Ceremonial grade, oat milk', price: '5,000 IQD' },
+    { en: 'Cold Brew', ar: 'كولد برو', desc: '18-hour steep, smooth & strong', price: '4,500 IQD' },
+    { en: 'Mango Mojito', ar: 'موهيتو منجو', desc: 'Fresh mango, mint, lime, soda', price: '4,000 IQD' },
+    { en: 'Galaxy Lemonade', ar: 'ليموناضة مجرية', desc: 'Butterfly pea flower, lemon, ice', price: '4,500 IQD' },
+    { en: 'Energy Boost', ar: 'منشط الطاقة', desc: 'Espresso tonic with orange zest', price: '4,000 IQD' },
+    { en: 'Strawberry Frappe', ar: 'فرابيه فراولة', desc: 'Blended, whipped cream, drizzle', price: '5,500 IQD' },
+  ],
+  food: [
+    { en: 'Gamer Burger', ar: 'برغر الجيمر', desc: 'Double smash patty, cheddar, caramelized onion', price: '9,000 IQD' },
+    { en: 'Loaded Fries', ar: 'بطاطا محملة', desc: 'Parmesan, herbs, truffle aioli', price: '6,000 IQD' },
+    { en: 'Club Sandwich', ar: 'كلوب ساندويتش', desc: 'Triple decker, chicken, avocado', price: '8,500 IQD' },
+    { en: 'Croissant Toast', ar: 'كرواسان مخبوز', desc: 'Butter, honey, pistachio cream', price: '5,000 IQD' },
+    { en: 'Nachos Supreme', ar: 'ناتشوز', desc: 'Jalapeño, salsa, sour cream, guac', price: '7,500 IQD' },
+    { en: 'Waffle Stack', ar: 'وافل', desc: 'Nutella, banana, ice cream, syrup', price: '8,000 IQD' },
+  ],
+  shisha: [
+    { en: 'Double Apple', ar: 'تفاحتين', desc: 'Classic, smooth, ever-popular', price: '15,000 IQD' },
+    { en: 'Grape Mint', ar: 'عنب نعناع', desc: 'Chilled, fresh, full flavored', price: '15,000 IQD' },
+    { en: 'Blueberry Ice', ar: 'توت ثلجي', desc: 'Cool berry with icy finish', price: '18,000 IQD' },
+    { en: 'Peach Rose', ar: 'خوخ ورد', desc: 'Floral and fruity blend', price: '18,000 IQD' },
+    { en: 'Wanase Special Mix', ar: 'مزيج وناسة', desc: 'Our secret 3-flavor signature blend', price: '20,000 IQD' },
+    { en: 'Melon Citrus', ar: 'شمام حمضيات', desc: 'Refreshing and vibrant all day', price: '16,000 IQD' },
+  ]
+};
+
+function showTab(tab, btn) {
+  document.querySelectorAll('.menu-tab').forEach(t => t.classList.remove('active'));
+  btn.classList.add('active');
+  const items = menuData[tab];
+  const container = document.getElementById('menu-items');
+  container.innerHTML = items.map(item => `
+    <div class="menu-item">
+      <div class="menu-info">
+        <h4>${item.en} <span class="name-ar">${item.ar}</span></h4>
+        <p>${item.desc}</p>
+      </div>
+      <div class="menu-price">${item.price}</div>
+    </div>
+  `).join('');
+}
+
+showTab('coffee', document.querySelector('.menu-tab.active'));
+
+// Scroll reveal
+const revealEls = document.querySelectorAll('.reveal');
+const observer = new IntersectionObserver(entries => {
+  entries.forEach(e => {
+    if (e.isIntersecting) {
+      e.target.classList.add('visible');
+      observer.unobserve(e.target);
+    }
+  });
+}, { threshold: 0.1, rootMargin: '0px 0px -60px 0px' });
+revealEls.forEach(el => observer.observe(el));
+
+// Stagger reveal for children
+document.querySelectorAll('.vibe-card, .station-card, .event-item, .menu-item').forEach((el, i) => {
+  el.style.transitionDelay = (i % 6) * 0.05 + 's';
+});
+</script>
+</body>
+</html>
