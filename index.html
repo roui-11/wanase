@@ -442,53 +442,42 @@
   .menu-section .section-label { color: #7A5535; }
   .menu-section .section-title { color: #1C0F07; }
   .menu-section .section-title-ar { color: #7A5535; opacity: 0.8; }
+
+  .menu-tabs {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap: 1rem;
+    max-width: 1200px;
+    margin: 2rem auto 3rem;
+  }
   .menu-tab {
     font-family: 'Rajdhani', sans-serif;
-    font-size: 0.8rem; font-weight: 700;
-    letter-spacing: 0.2em; text-transform: uppercase;
-    background: transparent; border: none;
+    font-size: 0.85rem; font-weight: 700;
+    letter-spacing: 0.12em; text-transform: uppercase;
+    background: #fff;
+    border: 1px solid rgba(122,85,53,0.2);
     color: #7A5535;
-    padding: 0.75rem 1.8rem;
+    padding: 1.5rem 1rem;
     cursor: pointer; transition: all 0.3s;
-    border-right: 1px solid rgba(122,85,53,0.2);
-    position: relative;
+    display: flex; flex-direction: column;
+    align-items: center; gap: 0.6rem;
+    clip-path: polygon(0 0, calc(100% - 10px) 0, 100% 10px, 100% 100%, 10px 100%, 0 calc(100% - 10px));
   }
-  .menu-tab:last-child { border-right: none; }
+  .menu-tab .tab-icon { font-size: 2rem; line-height: 1; }
+  .menu-tab:hover {
+    background: #E8D5B0;
+    border-color: rgba(122,85,53,0.45);
+    transform: translateY(-3px);
+  }
   .menu-tab.active {
     background: #1C0F07;
     color: #E8D5B0;
-  }
-  .menu-tabs {
-    display: flex; justify-content: center; gap: 0; margin: 2rem 0 3rem;
-    border: 1px solid rgba(122,85,53,0.25);
-    width: fit-content; margin-left: auto; margin-right: auto;
-    overflow: hidden;
+    border-color: #1C0F07;
+    transform: translateY(-3px);
+    box-shadow: 0 8px 20px rgba(28,15,7,0.18);
   }
   .menu-header {
-    text-align: center; margin-bottom: 4rem;
-  }
-
-  .menu-tabs {
-    display: flex; justify-content: center; gap: 0; margin: 2rem 0 3rem;
-    border: 1px solid var(--border);
-    width: fit-content; margin-left: auto; margin-right: auto;
-    overflow: hidden;
-  }
-  .menu-tab {
-    font-family: 'Rajdhani', sans-serif;
-    font-size: 0.8rem; font-weight: 700;
-    letter-spacing: 0.2em; text-transform: uppercase;
-    background: transparent; border: none;
-    color: var(--text-muted);
-    padding: 0.75rem 1.8rem;
-    cursor: pointer; transition: all 0.3s;
-    border-right: 1px solid var(--border);
-    position: relative;
-  }
-  .menu-tab:last-child { border-right: none; }
-  .menu-tab.active {
-    background: rgba(212,168,67,0.1);
-    color: var(--gold);
+    text-align: center; margin-bottom: 2rem;
   }
 
   .menu-grid {
@@ -1084,7 +1073,7 @@
     <span></span>
   </div>
 
-  <p class="hero-sub" style="font-family:'Noto Kufi Arabic',sans-serif; direction:rtl; unicode-bidi:embed; letter-spacing:0; color:#E8D5B0; text-shadow: 0 2px 12px rgba(0,0,0,0.9), 0 0 30px rgba(0,0,0,0.8); font-size:clamp(1rem,2.5vw,1.2rem); font-weight:500; line-height:2;">كلشي تحبة بمكان واحد</p>
+  <p class="hero-sub" style="font-family:'Noto Kufi Arabic',sans-serif; direction:rtl; unicode-bidi:embed; letter-spacing:0; color:#E8D5B0; text-shadow: 0 2px 12px rgba(0,0,0,0.9), 0 0 30px rgba(0,0,0,0.8); font-size:clamp(1rem,2.5vw,1.2rem); font-weight:500; line-height:2;">أفخم المشروبات وأشهى الأكل — وجهتك المثالية في بغداد</p>
 
   <div class="hero-buttons">
     <a href="#menu" class="btn-primary">View Menu</a>
