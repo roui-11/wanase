@@ -9,19 +9,19 @@
   *, *::before, *::after { margin: 0; padding: 0; box-sizing: border-box; }
 
   :root {
-    --gold: #D4A843;
-    --gold-light: #F0C965;
-    --gold-dark: #8B6914;
-    --ember: #E8521A;
-    --teal: #00C9A7;
-    --purple: #8B5CF6;
-    --bg-deep: #080810;
-    --bg-dark: #0D0D1A;
-    --bg-card: #111128;
-    --bg-card2: #14142E;
-    --text-primary: #F0EDE4;
-    --text-muted: #8A8A9A;
-    --border: rgba(212, 168, 67, 0.2);
+    --gold: #C4895A;
+    --gold-light: #D4A870;
+    --gold-dark: #7A5535;
+    --ember: #B85C2A;
+    --teal: #A0784A;
+    --purple: #8B6340;
+    --bg-deep: #1C0F07;
+    --bg-dark: #231208;
+    --bg-card: #E8D5B0;
+    --bg-card2: #F0E2C4;
+    --text-primary: #1C0F07;
+    --text-muted: #7A5535;
+    --border: rgba(122, 85, 53, 0.2);
   }
 
   html { scroll-behavior: smooth; }
@@ -37,14 +37,14 @@
   /* Custom scrollbar */
   ::-webkit-scrollbar { width: 4px; }
   ::-webkit-scrollbar-track { background: var(--bg-deep); }
-  ::-webkit-scrollbar-thumb { background: var(--gold-dark); border-radius: 2px; }
+  ::-webkit-scrollbar-thumb { background: #7A5535; border-radius: 2px; }
 
   /* ── NAV ── */
   nav {
     position: fixed; top: 0; left: 0; right: 0; z-index: 100;
     display: flex; align-items: center; justify-content: space-between;
     padding: 1.2rem 4rem;
-    background: rgba(8,8,16,0.85);
+    background: rgba(28,15,7,0.92);
     backdrop-filter: blur(16px);
     border-bottom: 1px solid var(--border);
   }
@@ -114,7 +114,7 @@
 
   .hero-bg {
     position: absolute; inset: 0;
-    background: linear-gradient(40deg, rgb(4, 4, 20), rgb(8, 4, 30));
+    background: linear-gradient(40deg, rgb(20, 8, 2), rgb(28, 12, 4));
     overflow: hidden;
   }
 
@@ -141,28 +141,28 @@
   }
 
   .blob-1 {
-    background: radial-gradient(circle at center, rgba(180, 100, 20, 1) 0, rgba(180, 100, 20, 0) 50%) no-repeat;
+    background: radial-gradient(circle at center, rgba(245, 237, 216, 0.07) 0, rgba(245, 237, 216, 0) 50%) no-repeat;
     animation: moveVertical 30s ease infinite;
     transform-origin: center center;
   }
   .blob-2 {
-    background: radial-gradient(circle at center, rgba(212, 168, 67, 0.8) 0, rgba(212, 168, 67, 0) 50%) no-repeat;
+    background: radial-gradient(circle at center, rgba(196, 137, 90, 0.15) 0, rgba(196, 137, 90, 0) 50%) no-repeat;
     animation: moveInCircle 20s reverse infinite;
     transform-origin: calc(50% - 400px);
   }
   .blob-3 {
-    background: radial-gradient(circle at center, rgba(139, 92, 246, 0.8) 0, rgba(139, 92, 246, 0) 50%) no-repeat;
+    background: radial-gradient(circle at center, rgba(245, 237, 216, 0.05) 0, rgba(245, 237, 216, 0) 50%) no-repeat;
     animation: moveInCircle 40s linear infinite;
     transform-origin: calc(50% + 400px);
   }
   .blob-4 {
-    background: radial-gradient(circle at center, rgba(0, 201, 167, 0.8) 0, rgba(0, 201, 167, 0) 50%) no-repeat;
+    background: radial-gradient(circle at center, rgba(180, 120, 60, 0.1) 0, rgba(180, 120, 60, 0) 50%) no-repeat;
     animation: moveHorizontal 40s ease infinite;
     transform-origin: calc(50% - 200px);
     opacity: 0.5;
   }
   .blob-5 {
-    background: radial-gradient(circle at center, rgba(232, 82, 26, 0.8) 0, rgba(232, 82, 26, 0) 50%) no-repeat;
+    background: radial-gradient(circle at center, rgba(245, 237, 216, 0.04) 0, rgba(245, 237, 216, 0) 50%) no-repeat;
     animation: moveInCircle 20s ease infinite;
     transform-origin: calc(50% - 800px) calc(50% + 800px);
   }
@@ -170,7 +170,7 @@
     position: absolute;
     width: 100%; height: 100%;
     top: -50%; left: -50%;
-    background: radial-gradient(circle at center, rgba(212, 140, 50, 0.6) 0, rgba(212, 140, 50, 0) 50%) no-repeat;
+    background: radial-gradient(circle at center, rgba(245, 237, 216, 0.04) 0, rgba(245, 237, 216, 0) 50%) no-repeat;
     mix-blend-mode: hard-light;
     opacity: 0.6;
     transition: transform 0.05s linear;
@@ -329,36 +329,49 @@
   .section-label {
     font-size: 0.65rem; font-weight: 700;
     letter-spacing: 0.4em; text-transform: uppercase;
-    color: var(--teal);
+    color: var(--gold-dark);
     margin-bottom: 0.8rem;
   }
   .section-title {
     font-family: 'Cinzel Decorative', serif;
     font-size: clamp(1.8rem, 4vw, 3rem);
     font-weight: 700;
-    color: var(--gold);
+    color: #1C0F07;
     line-height: 1.1;
   }
   .section-title-ar {
     font-family: 'Noto Kufi Arabic', sans-serif;
     font-size: clamp(0.9rem, 2vw, 1.2rem);
     font-weight: 300;
-    color: var(--gold-light);
-    opacity: 0.5;
+    color: var(--gold-dark);
+    opacity: 0.7;
     letter-spacing: 0.2em;
     margin-top: 0.3rem;
   }
   .section-desc {
-    color: var(--text-muted);
+    color: #7A5535;
     font-size: 1rem;
     line-height: 1.8;
     max-width: 500px;
     margin-top: 1rem;
   }
+  /* override for dark sections (menu, contact) */
+  .menu-section .section-label,
+  .contact-section .section-label { color: var(--gold); }
+  .menu-section .section-title,
+  .contact-section .section-title { color: #E8D5B0; }
+  .menu-section .section-title-ar,
+  .contact-section .section-title-ar { color: var(--gold-light); opacity: 0.6; }
+  .menu-section .menu-tab { color: #A0784A; }
+  .menu-section .menu-tab.active { color: var(--gold); background: rgba(196,137,90,0.12); }
+  .gaming-section .section-label { color: var(--gold-dark); }
+  .gaming-section .section-title { color: #1C0F07; }
+  .gaming-section .section-title-ar { color: var(--gold-dark); opacity: 0.7; }
+  .gaming-section .section-desc { color: #7A5535; }
 
   /* ── VIBE SECTION ── */
   .vibe-section {
-    background: var(--bg-dark);
+    background: #E8D5B0;
     position: relative;
     overflow: hidden;
   }
@@ -368,7 +381,7 @@
     font-size: 18rem; font-weight: 900;
     position: absolute; right: -3rem; top: 50%;
     transform: translateY(-50%);
-    color: rgba(212,168,67,0.025);
+    color: rgba(122,85,53,0.06);
     line-height: 1;
     pointer-events: none;
   }
@@ -386,8 +399,8 @@
   }
 
   .vibe-card {
-    background: var(--bg-card);
-    border: 1px solid var(--border);
+    background: #fff;
+    border: 1px solid rgba(122,85,53,0.15);
     padding: 1.8rem 1.5rem;
     position: relative;
     transition: all 0.3s;
@@ -396,7 +409,7 @@
   .vibe-card:hover {
     border-color: var(--gold);
     transform: translateY(-4px);
-    background: var(--bg-card2);
+    background: #F0E2C4;
   }
   .vibe-card .icon {
     font-size: 2rem; margin-bottom: 1rem;
@@ -404,7 +417,7 @@
   .vibe-card h3 {
     font-family: 'Cinzel Decorative', serif;
     font-size: 0.85rem;
-    color: var(--gold);
+    color: #1C0F07;
     letter-spacing: 0.1em;
     margin-bottom: 0.5rem;
   }
@@ -424,7 +437,32 @@
 
   /* ── MENU SECTION ── */
   .menu-section {
-    background: var(--bg-deep);
+    background: #E8D5B0;
+  }
+  .menu-section .section-label { color: #7A5535; }
+  .menu-section .section-title { color: #1C0F07; }
+  .menu-section .section-title-ar { color: #7A5535; opacity: 0.8; }
+  .menu-tab {
+    font-family: 'Rajdhani', sans-serif;
+    font-size: 0.8rem; font-weight: 700;
+    letter-spacing: 0.2em; text-transform: uppercase;
+    background: transparent; border: none;
+    color: #7A5535;
+    padding: 0.75rem 1.8rem;
+    cursor: pointer; transition: all 0.3s;
+    border-right: 1px solid rgba(122,85,53,0.2);
+    position: relative;
+  }
+  .menu-tab:last-child { border-right: none; }
+  .menu-tab.active {
+    background: #1C0F07;
+    color: #E8D5B0;
+  }
+  .menu-tabs {
+    display: flex; justify-content: center; gap: 0; margin: 2rem 0 3rem;
+    border: 1px solid rgba(122,85,53,0.25);
+    width: fit-content; margin-left: auto; margin-right: auto;
+    overflow: hidden;
   }
   .menu-header {
     text-align: center; margin-bottom: 4rem;
@@ -460,8 +498,8 @@
     max-width: 1200px; margin: 0 auto;
   }
   .menu-item {
-    background: var(--bg-card);
-    border: 1px solid var(--border);
+    background: #1C0F07;
+    border: 1px solid rgba(122,85,53,0.25);
     padding: 1.5rem;
     display: flex; justify-content: space-between; align-items: flex-start;
     transition: all 0.3s;
@@ -470,46 +508,46 @@
   }
   .menu-item::before {
     content: ''; position: absolute; left: 0; top: 0; bottom: 0;
-    width: 2px; background: var(--gold);
+    width: 2px; background: #7A5535;
     transform: scaleY(0); transition: transform 0.3s;
     transform-origin: bottom;
   }
   .menu-item:hover::before { transform: scaleY(1); }
-  .menu-item:hover { background: var(--bg-card2); border-color: rgba(212,168,67,0.35); }
+  .menu-item:hover { background: #231208; border-color: rgba(122,85,53,0.5); }
 
   .menu-info h4 {
     font-family: 'Rajdhani', sans-serif;
     font-size: 1.05rem; font-weight: 600;
-    color: var(--text-primary);
+    color: #E8D5B0;
     letter-spacing: 0.05em;
     margin-bottom: 0.25rem;
   }
   .menu-info h4 .name-ar {
     font-family: 'Noto Kufi Arabic', sans-serif;
     font-size: 0.75rem; font-weight: 400;
-    color: var(--text-muted);
+    color: #A0784A;
     display: block;
   }
   .menu-info p {
-    font-size: 0.8rem; color: var(--text-muted);
+    font-size: 0.8rem; color: #A0784A;
   }
   .menu-price {
     font-family: 'Cinzel Decorative', serif;
     font-size: 1.1rem; font-weight: 700;
-    color: var(--gold);
+    color: #D4A870;
     white-space: nowrap;
   }
 
   /* ── GAMING SECTION ── */
   .gaming-section {
-    background: var(--bg-dark);
+    background: #E8D5B0;
     position: relative; overflow: hidden;
   }
   .gaming-section::before {
     content: '';
     position: absolute; top: 0; left: 0; right: 0;
     height: 1px;
-    background: linear-gradient(90deg, transparent, var(--teal), transparent);
+    background: linear-gradient(90deg, transparent, var(--gold), transparent);
   }
 
   .gaming-layout {
@@ -523,8 +561,8 @@
   }
 
   .station-card {
-    background: var(--bg-card);
-    border: 1px solid rgba(0,201,167,0.15);
+    background: #fff;
+    border: 1px solid rgba(122,85,53,0.2);
     padding: 1.5rem;
     text-align: center;
     transition: all 0.35s;
@@ -532,8 +570,8 @@
     cursor: default;
   }
   .station-card:hover {
-    border-color: var(--teal);
-    background: rgba(0,201,167,0.05);
+    border-color: var(--gold);
+    background: #F0E2C4;
     transform: scale(1.03);
   }
   .station-card .station-icon { font-size: 2.5rem; margin-bottom: 0.75rem; }
@@ -541,40 +579,40 @@
     font-family: 'Rajdhani', sans-serif;
     font-size: 1rem; font-weight: 700;
     letter-spacing: 0.1em; text-transform: uppercase;
-    color: var(--teal);
+    color: #1C0F07;
     margin-bottom: 0.3rem;
   }
   .station-card p { font-size: 0.8rem; color: var(--text-muted); }
 
   .station-card.featured {
     grid-column: 1 / -1;
-    border-color: rgba(139,92,246,0.3);
-    background: rgba(139,92,246,0.05);
+    border-color: rgba(196,137,90,0.35);
+    background: #F0E2C4;
     clip-path: none;
     display: flex; align-items: center; gap: 1.5rem; text-align: left;
   }
   .station-card.featured:hover {
-    border-color: var(--purple);
-    background: rgba(139,92,246,0.1);
+    border-color: var(--gold);
+    background: #E8D5B0;
   }
-  .station-card.featured h3 { color: var(--purple); }
+  .station-card.featured h3 { color: var(--gold-dark); }
 
   .pricing-table {
-    border: 1px solid var(--border);
+    border: 1px solid rgba(122,85,53,0.2);
     overflow: hidden;
   }
   .pricing-row {
     display: grid; grid-template-columns: 1fr auto auto;
     padding: 0.9rem 1.2rem;
-    border-bottom: 1px solid var(--border);
+    border-bottom: 1px solid rgba(122,85,53,0.15);
     align-items: center;
     transition: background 0.2s;
   }
   .pricing-row:last-child { border-bottom: none; }
-  .pricing-row:hover { background: rgba(212,168,67,0.04); }
+  .pricing-row:hover { background: rgba(196,137,90,0.06); }
   .pricing-row .pkg {
     font-weight: 600; font-size: 0.95rem;
-    color: var(--text-primary);
+    color: #1C0F07;
     letter-spacing: 0.05em;
   }
   .pricing-row .pkg small {
@@ -589,11 +627,11 @@
   .pricing-row .prc {
     font-family: 'Cinzel Decorative', serif;
     font-size: 1rem; font-weight: 700;
-    color: var(--gold);
+    color: var(--gold-dark);
     text-align: right;
   }
-  .pricing-row.highlight .pkg { color: var(--teal); }
-  .pricing-row.highlight { background: rgba(0,201,167,0.03); }
+  .pricing-row.highlight .pkg { color: var(--gold-dark); }
+  .pricing-row.highlight { background: rgba(196,137,90,0.08); }
 
   /* ── GALLERY ── */
   .gallery-section {
@@ -711,7 +749,7 @@
 
   /* ── CONTACT / LOCATION ── */
   .contact-section {
-    background: var(--bg-deep);
+    background: #1C0F07;
     padding: 7rem 4rem;
     position: relative;
   }
@@ -720,6 +758,16 @@
     position: absolute; top: 0; left: 0; right: 0;
     height: 1px;
     background: linear-gradient(90deg, transparent, var(--gold), transparent);
+  }
+  .info-block .label {
+    font-size: 0.65rem; font-weight: 700;
+    letter-spacing: 0.35em; text-transform: uppercase;
+    color: var(--gold); margin-bottom: 0.4rem;
+  }
+  .info-block .value {
+    font-size: 1rem; font-weight: 600;
+    color: #E8D5B0; letter-spacing: 0.05em;
+    line-height: 1.6;
   }
 
   .contact-layout {
@@ -798,8 +846,8 @@
 
   /* ── FOOTER ── */
   footer {
-    background: var(--bg-card);
-    border-top: 1px solid var(--border);
+    background: #130A04;
+    border-top: 1px solid rgba(196,137,90,0.2);
     padding: 3rem 4rem 2rem;
   }
   .footer-inner {
@@ -813,10 +861,10 @@
   }
   .footer-brand .logo-ar {
     font-family: 'Noto Kufi Arabic', sans-serif;
-    font-size: 0.9rem; color: var(--gold-light); opacity: 0.5;
+    font-size: 0.9rem; color: var(--gold-light); opacity: 0.6;
   }
   .footer-brand p {
-    font-size: 0.85rem; color: var(--text-muted);
+    font-size: 0.85rem; color: #A0784A;
     line-height: 1.7; margin-top: 1rem; max-width: 250px;
   }
   .footer-col h5 {
@@ -829,31 +877,31 @@
   .footer-col ul li { margin-bottom: 0.5rem; }
   .footer-col ul a {
     text-decoration: none; font-size: 0.85rem;
-    color: var(--text-muted); transition: color 0.2s;
+    color: #A0784A; transition: color 0.2s;
   }
-  .footer-col ul a:hover { color: var(--text-primary); }
+  .footer-col ul a:hover { color: #E8D5B0; }
 
   .footer-bottom {
     max-width: 1200px; margin: 0 auto;
-    border-top: 1px solid var(--border);
+    border-top: 1px solid rgba(196,137,90,0.15);
     padding-top: 1.5rem;
     display: flex; justify-content: space-between; align-items: center;
-    font-size: 0.75rem; color: var(--text-muted);
+    font-size: 0.75rem; color: #7A5535;
     letter-spacing: 0.1em;
   }
 
   .social-icons { display: flex; gap: 0.8rem; }
   .social-icon {
     width: 36px; height: 36px;
-    border: 1px solid var(--border);
+    border: 1px solid rgba(196,137,90,0.3);
     display: flex; align-items: center; justify-content: center;
     font-size: 1rem; cursor: pointer; transition: all 0.3s;
-    color: var(--text-muted);
+    color: #A0784A;
     text-decoration: none;
   }
   .social-icon:hover {
     border-color: var(--gold); color: var(--gold);
-    background: rgba(212,168,67,0.06);
+    background: rgba(196,137,90,0.08);
   }
 
   /* ── ANIMATIONS ── */
@@ -882,76 +930,107 @@
     nav { padding: 1rem 1.5rem; }
     .nav-links { display: none; }
     section { padding: 4rem 1.5rem; }
-    .vibe-grid, .gaming-layout, .contact-layout, .events-layout { grid-template-columns: 1fr; gap: 2.5rem; }
     .footer-inner { grid-template-columns: 1fr; gap: 2rem; }
-    .gallery-mosaic { grid-template-columns: 1fr 1fr; grid-template-rows: auto; }
-    .g-tile-1, .g-tile-5 { grid-column: 1 / -1; }
-    .g-tile-2, .g-tile-3, .g-tile-4, .g-tile-6 { grid-column: auto; }
     .hero-buttons { flex-direction: column; align-items: center; }
     .menu-tabs { flex-wrap: wrap; }
+    .menu-grid { grid-template-columns: 1fr; }
 
-    /* ── Arabic font fixes on mobile ── */
-    .hero-title-ar,
-    .section-title-ar,
-    .nav-logo .ar,
-    .footer-brand .logo-ar {
-      font-family: 'Noto Kufi Arabic', sans-serif;
-      unicode-bidi: embed;
-      direction: rtl;
+    /* ── Global Arabic rendering ── */
+    * { -webkit-font-smoothing: antialiased; -moz-osx-font-smoothing: grayscale; }
+
+    /* Hero Arabic subtitle */
+    .hero-sub {
+      font-size: clamp(0.95rem, 4vw, 1.1rem) !important;
+      line-height: 2.2 !important;
+      max-width: 90vw;
       text-align: center;
-      letter-spacing: 0;
+      direction: rtl;
+      unicode-bidi: embed;
+      letter-spacing: 0 !important;
+      word-spacing: 0.05em;
     }
 
+    /* Hero وناسة under WANASE */
     .hero-title-ar {
-      font-size: clamp(1.2rem, 6vw, 2rem);
-      opacity: 0.65;
+      font-family: 'Noto Kufi Arabic', sans-serif;
+      font-size: clamp(1.4rem, 7vw, 2.2rem);
+      font-weight: 600;
+      direction: rtl;
+      unicode-bidi: embed;
+      letter-spacing: 0;
+      text-align: center;
       display: block;
       width: 100%;
+      opacity: 0.7;
     }
 
+    /* Section Arabic subtitles */
     .section-title-ar {
-      font-size: clamp(0.85rem, 3.5vw, 1.1rem);
+      font-family: 'Noto Kufi Arabic', sans-serif;
+      font-size: clamp(1rem, 4vw, 1.2rem);
+      font-weight: 400;
+      direction: rtl;
+      unicode-bidi: embed;
+      letter-spacing: 0;
       display: block;
       margin-top: 0.4rem;
+      text-align: right;
     }
 
+    /* Nav logo Arabic */
     .nav-logo .ar {
-      font-size: 0.8rem;
+      font-family: 'Noto Kufi Arabic', sans-serif;
+      font-size: 0.85rem;
+      font-weight: 600;
       letter-spacing: 0;
       direction: rtl;
+      unicode-bidi: embed;
+      display: block;
     }
 
-    /* prevent Arabic letters from getting squished */
-    * { -webkit-font-smoothing: antialiased; }
-
-    /* fix menu item Arabic names */
+    /* Menu item Arabic names */
     .menu-info h4 .name-ar {
       font-family: 'Noto Kufi Arabic', sans-serif;
       direction: rtl;
       unicode-bidi: embed;
       letter-spacing: 0;
-      font-size: 0.8rem;
-      line-height: 1.5;
+      font-size: 0.85rem;
+      line-height: 1.8;
+      display: block;
+      word-break: keep-all;
     }
 
-    /* fix vibe section watermark */
-    .vibe-section::before {
-      font-size: 8rem;
-      right: -1rem;
+    /* Menu section title */
+    .menu-section .section-title {
+      font-size: clamp(1.6rem, 7vw, 2.5rem);
+    }
+    .menu-section .section-title-ar {
+      font-size: clamp(0.9rem, 3.5vw, 1.1rem);
+      color: #7A5535;
+      opacity: 0.85;
     }
 
-    /* contact info Arabic-adjacent */
-    .info-block .value {
-      font-size: 0.95rem;
+    /* Footer Arabic logo */
+    .footer-brand .logo-ar {
+      font-family: 'Noto Kufi Arabic', sans-serif;
+      font-size: 1rem;
+      font-weight: 600;
+      letter-spacing: 0;
+      direction: rtl;
+      unicode-bidi: embed;
+      display: block;
+    }
+
+    /* Footer brand description */
+    .footer-brand p {
+      font-size: 0.85rem;
       line-height: 1.7;
     }
 
-    /* footer Arabic logo */
-    .footer-brand .logo-ar {
-      font-size: 1rem;
-      letter-spacing: 0;
-      direction: rtl;
-      display: block;
+    /* Menu tabs on mobile */
+    .menu-tab {
+      padding: 0.65rem 1.2rem;
+      font-size: 0.75rem;
     }
   }
 </style>
@@ -965,12 +1044,9 @@
     <span class="ar">وناسة</span>
   </div>
   <ul class="nav-links">
-    <li><a href="#vibe">About</a></li>
     <li><a href="#menu">Menu</a></li>
-    <li><a href="#gaming">Gaming</a></li>
-    <li><a href="#contact">Visit Us</a></li>
   </ul>
-  <button class="nav-cta" onclick="document.getElementById('contact').scrollIntoView({behavior:'smooth'})">Book Now</button>
+  <button class="nav-cta" onclick="document.getElementById('menu').scrollIntoView({behavior:'smooth'})">View Menu</button>
 </nav>
 
 <!-- HERO -->
@@ -997,7 +1073,7 @@
   <div class="hero-grid"></div>
   <div class="hero-ornament"></div>
 
-  <div class="hero-badge">Cafe · GameZone</div>
+  <div class="hero-badge">Cafe · Menu</div>
 
   <h1 class="hero-title">WANASE</h1>
   <div class="hero-title-ar">وناسة</div>
@@ -1008,11 +1084,10 @@
     <span></span>
   </div>
 
-  <p class="hero-sub" style="font-family:'Noto Kufi Arabic',sans-serif; direction:rtl; unicode-bidi:embed; letter-spacing:0; color:#ffffff; text-shadow: 0 2px 12px rgba(0,0,0,0.9), 0 0 30px rgba(0,0,0,0.8); font-size:clamp(1rem,2.5vw,1.2rem); font-weight:500; line-height:2;">كلشي تحبه بمكان واحد</p>
+  <p class="hero-sub" style="font-family:'Noto Kufi Arabic',sans-serif; direction:rtl; unicode-bidi:embed; letter-spacing:0; color:#E8D5B0; text-shadow: 0 2px 12px rgba(0,0,0,0.9), 0 0 30px rgba(0,0,0,0.8); font-size:clamp(1rem,2.5vw,1.2rem); font-weight:500; line-height:2;">أفخم المشروبات وأشهى الأكل — وجهتك المثالية في بغداد</p>
 
   <div class="hero-buttons">
-    <a href="#menu" class="btn-primary">Menu</a>
-    <a href="#gaming" class="btn-outline">Gaming Zone</a>
+    <a href="#menu" class="btn-primary">View Menu</a>
   </div>
 
   <div class="hero-scroll">
@@ -1022,138 +1097,23 @@
 </section>
 
 
-<!-- VIBE SECTION -->
-<section class="vibe-section" id="vibe">
-  <div class="vibe-grid">
-    <div class="reveal">
-      <div class="section-label">The Experience</div>
-      <h2 class="section-title">One Place,<br>Two Worlds</h2>
-      <div class="section-title-ar">عالمان تحت سقف واحد</div>
-      <p class="section-desc">سواء جاي تلعب، تلتقي بأصحابك، أو تغيّر جو، وناسة جاهز يستقبلك</p>
-    </div>
-    <div class="vibe-cards reveal">
-      <div class="vibe-card">
-        <div class="accent-line"></div>
-        <div class="icon">☕</div>
-        <h3>Specialty Coffee</h3>
-        <p>Single-origin beans, crafted by passionate baristas every cup, every time.</p>
-      </div>
-      <div class="vibe-card">
-        <div class="accent-line"></div>
-        <div class="icon">🎮</div>
-        <h3>Gaming Stations</h3>
-        <p>Latest consoles, high-refresh PC setups ready for your challenge.</p>
-      </div>
-      <div class="vibe-card">
-        <div class="accent-line"></div>
-        <div class="icon">🍽️</div>
-        <h3>Snacks</h3>
-        <p>a great snacks to fuel long gaming sessions.</p>
-      </div>
-      <div class="vibe-card">
-        <div class="accent-line"></div>
-        <div class="icon">🎱</div>
-        <h3>billiard</h3>
-        <p>Weekly competitions with real prizes. Show the arena what you've got.</p>
-      </div>
-    </div>
-  </div>
-</section>
-
-
 <!-- MENU SECTION -->
 <section class="menu-section" id="menu">
   <div class="menu-header reveal">
-    <div class="section-label">Snacks & Drinks</div>
+    <div class="section-label">Food & Drinks</div>
     <h2 class="section-title">Our Menu</h2>
     <div class="section-title-ar">قائمتنا</div>
   </div>
 
   <div class="menu-tabs">
-    <button class="menu-tab active" onclick="showTab('coffee', this)">المشاريب الحارة</button>
-    <button class="menu-tab" onclick="showTab('cold', this)">المشاريب الباردة</button>
-    <button class="menu-tab" onclick="showTab('food', this)">السناك</button>
-    <button class="menu-tab" onclick="showTab('shisha', this)">الاراكيل</button>
+    <button class="menu-tab active" onclick="showTab('coffee', this)">Coffee</button>
+    <button class="menu-tab" onclick="showTab('cold', this)">Cold Drinks</button>
+    <button class="menu-tab" onclick="showTab('food', this)">Bites</button>
+    <button class="menu-tab" onclick="showTab('shisha', this)">Shisha</button>
   </div>
 
   <div class="menu-grid" id="menu-items">
     <!-- populated by JS -->
-  </div>
-</section>
-
-
-<!-- GAMING SECTION -->
-<section class="gaming-section" id="gaming">
-  <div class="gaming-layout">
-    <div class="reveal">
-      <div class="section-label">Game Zone</div>
-      <h2 class="section-title">Level Up<br>Your Game</h2>
-      <div class="section-title-ar">استعد للمواجهة</div>
-      <p class="section-desc"> gaming , community , competitive.</p>
-
-      <div style="margin-top: 2.5rem;">
-        <div style="font-size:0.65rem; font-weight:700; letter-spacing:0.4em; text-transform:uppercase; color:var(--teal); margin-bottom:0.8rem; display:flex; align-items:center; gap:0.6rem;">
-          <span>Pricing Plans</span>
-          <span style="font-family:'Noto Kufi Arabic',sans-serif; direction:rtl; letter-spacing:0; text-transform:none; font-size:0.75rem;">الأسعار</span>
-        </div>
-        <div class="pricing-table">
-          <div class="pricing-row">
-            <div class="pkg">ساعة واحدة<small>ps5</small></div>
-            <div class="dur">1 hr</div>
-            <div class="prc">5,000 IQD</div>
-          </div>
-          <div class="pricing-row">
-            <div class="pkg">boot camp<small>After 9 PM</small></div>
-            <div class="dur">5 hrs</div>
-            <div class="prc">10,000 IQD</div>
-          </div>
-        </div>
-      </div>
-    </div>
-
-    <div class="station-grid reveal">
-      <div class="station-card featured">
-        <div class="station-icon">🖥️</div>
-        <div>
-          <h3>PC Arena</h3>
-          <p>قيد الانشاء</p>
-        </div>
-      </div>
-      <div class="station-card">
-        <div class="station-icon">🎮</div>
-        <h3>Console</h3>
-        <p>PS5</p>
-      </div>
-      <div class="station-card">
-        <div class="station-icon">🃏</div>
-        <h3>Board Games</h3>
-        <p>شطرنج & دومنة & ورق & طاولي</p>
-      </div>
-    </div>
-  </div>
-</section>
-
-
-<!-- CONTACT -->
-<section class="contact-section" id="contact">
-  <div class="contact-layout">
-    <div class="reveal">
-      <div class="section-label">Find Us</div>
-      <h2 class="section-title">Visit Us</h2>
-      <div class="section-title-ar">زورونا</div>
-
-      <div class="contact-info" style="margin-top: 2.5rem;">
-        <div class="info-block">
-          <div class="label">📍 Location</div>
-          <div class="value">Baghdad, Iraq<br>Al-doura, abu-tayara</div>
-        </div>
-        <div class="info-block">
-          <div class="label">📞 Contact</div>
-          <div class="value">+964 770 000 0000<br>@wanase.iq</div>
-        </div>
-      </div>
-    </div>
-
   </div>
 </section>
 
@@ -1164,7 +1124,7 @@
     <div class="footer-brand">
       <div class="logo-en">WANASE</div>
       <div class="logo-ar">وناسة</div>
-      <p>Baghdad's premier Cafe & GameZone — where coffee culture meets competitive gaming.</p>
+      <p>Baghdad's finest Cafe — specialty coffee, cold drinks, snacks & shisha.</p>
       <div class="social-icons" style="margin-top: 1.2rem;">
         <a class="social-icon" href="https://www.instagram.com/wanase.iq" target="_blank" title="Instagram" rel="noopener noreferrer">
           <svg width="20" height="20" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
@@ -1183,18 +1143,16 @@
     <div class="footer-col">
       <h5>Navigate</h5>
       <ul>
-        <li><a href="#vibe">About</a></li>
         <li><a href="#menu">Menu</a></li>
-        <li><a href="#gaming">Gaming Zone</a></li>
-        <li><a href="#events">Events</a></li>
-        <li><a href="#contact">Contact</a></li>
       </ul>
     </div>
     <div class="footer-col">
-      <h5>Gaming</h5>
+      <h5>Menu</h5>
       <ul>
-        <li><a href="#">PC</a></li>
-        <li><a href="#">ps5</a></li>
+        <li><a href="#">Coffee</a></li>
+        <li><a href="#">Cold Drinks</a></li>
+        <li><a href="#">Bites</a></li>
+        <li><a href="#">Shisha</a></li>
       </ul>
     </div>
   </div>
