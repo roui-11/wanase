@@ -114,19 +114,83 @@
 
   .hero-bg {
     position: absolute; inset: 0;
-    background:
-      radial-gradient(ellipse 80% 60% at 50% 70%, rgba(212,168,67,0.06) 0%, transparent 70%),
-      radial-gradient(ellipse 40% 30% at 20% 50%, rgba(139,92,246,0.08) 0%, transparent 60%),
-      radial-gradient(ellipse 40% 30% at 80% 50%, rgba(0,201,167,0.06) 0%, transparent 60%);
+    background: linear-gradient(40deg, rgb(4, 4, 20), rgb(8, 4, 30));
+    overflow: hidden;
   }
 
   .hero-grid {
+    display: none;
+  }
+
+  /* gradient blobs */
+  .grad-blobs {
     position: absolute; inset: 0;
-    background-image:
-      linear-gradient(rgba(212,168,67,0.04) 1px, transparent 1px),
-      linear-gradient(90deg, rgba(212,168,67,0.04) 1px, transparent 1px);
-    background-size: 60px 60px;
-    mask-image: radial-gradient(ellipse 80% 80% at 50% 50%, black 30%, transparent 80%);
+    width: 100%; height: 100%;
+    filter: url(#goo) blur(40px);
+    overflow: hidden;
+  }
+
+  .grad-blob {
+    position: absolute;
+    border-radius: 50%;
+    width: 80%; height: 80%;
+    top: calc(50% - 40%);
+    left: calc(50% - 40%);
+    mix-blend-mode: hard-light;
+    opacity: 1;
+  }
+
+  .blob-1 {
+    background: radial-gradient(circle at center, rgba(180, 100, 20, 1) 0, rgba(180, 100, 20, 0) 50%) no-repeat;
+    animation: moveVertical 30s ease infinite;
+    transform-origin: center center;
+  }
+  .blob-2 {
+    background: radial-gradient(circle at center, rgba(212, 168, 67, 0.8) 0, rgba(212, 168, 67, 0) 50%) no-repeat;
+    animation: moveInCircle 20s reverse infinite;
+    transform-origin: calc(50% - 400px);
+  }
+  .blob-3 {
+    background: radial-gradient(circle at center, rgba(139, 92, 246, 0.8) 0, rgba(139, 92, 246, 0) 50%) no-repeat;
+    animation: moveInCircle 40s linear infinite;
+    transform-origin: calc(50% + 400px);
+  }
+  .blob-4 {
+    background: radial-gradient(circle at center, rgba(0, 201, 167, 0.8) 0, rgba(0, 201, 167, 0) 50%) no-repeat;
+    animation: moveHorizontal 40s ease infinite;
+    transform-origin: calc(50% - 200px);
+    opacity: 0.5;
+  }
+  .blob-5 {
+    background: radial-gradient(circle at center, rgba(232, 82, 26, 0.8) 0, rgba(232, 82, 26, 0) 50%) no-repeat;
+    animation: moveInCircle 20s ease infinite;
+    transform-origin: calc(50% - 800px) calc(50% + 800px);
+  }
+  .blob-pointer {
+    position: absolute;
+    width: 100%; height: 100%;
+    top: -50%; left: -50%;
+    background: radial-gradient(circle at center, rgba(212, 140, 50, 0.6) 0, rgba(212, 140, 50, 0) 50%) no-repeat;
+    mix-blend-mode: hard-light;
+    opacity: 0.6;
+    transition: transform 0.05s linear;
+    pointer-events: none;
+  }
+
+  @keyframes moveVertical {
+    0%   { transform: translateY(-50%); }
+    50%  { transform: translateY(50%); }
+    100% { transform: translateY(-50%); }
+  }
+  @keyframes moveInCircle {
+    0%   { transform: rotate(0deg); }
+    50%  { transform: rotate(180deg); }
+    100% { transform: rotate(360deg); }
+  }
+  @keyframes moveHorizontal {
+    0%   { transform: translateX(-50%) translateY(-10%); }
+    50%  { transform: translateX(50%) translateY(10%); }
+    100% { transform: translateX(-50%) translateY(-10%); }
   }
 
   .hero-ornament {
@@ -825,6 +889,70 @@
     .g-tile-2, .g-tile-3, .g-tile-4, .g-tile-6 { grid-column: auto; }
     .hero-buttons { flex-direction: column; align-items: center; }
     .menu-tabs { flex-wrap: wrap; }
+
+    /* ── Arabic font fixes on mobile ── */
+    .hero-title-ar,
+    .section-title-ar,
+    .nav-logo .ar,
+    .footer-brand .logo-ar {
+      font-family: 'Noto Kufi Arabic', sans-serif;
+      unicode-bidi: embed;
+      direction: rtl;
+      text-align: center;
+      letter-spacing: 0;
+    }
+
+    .hero-title-ar {
+      font-size: clamp(1.2rem, 6vw, 2rem);
+      opacity: 0.65;
+      display: block;
+      width: 100%;
+    }
+
+    .section-title-ar {
+      font-size: clamp(0.85rem, 3.5vw, 1.1rem);
+      display: block;
+      margin-top: 0.4rem;
+    }
+
+    .nav-logo .ar {
+      font-size: 0.8rem;
+      letter-spacing: 0;
+      direction: rtl;
+    }
+
+    /* prevent Arabic letters from getting squished */
+    * { -webkit-font-smoothing: antialiased; }
+
+    /* fix menu item Arabic names */
+    .menu-info h4 .name-ar {
+      font-family: 'Noto Kufi Arabic', sans-serif;
+      direction: rtl;
+      unicode-bidi: embed;
+      letter-spacing: 0;
+      font-size: 0.8rem;
+      line-height: 1.5;
+    }
+
+    /* fix vibe section watermark */
+    .vibe-section::before {
+      font-size: 8rem;
+      right: -1rem;
+    }
+
+    /* contact info Arabic-adjacent */
+    .info-block .value {
+      font-size: 0.95rem;
+      line-height: 1.7;
+    }
+
+    /* footer Arabic logo */
+    .footer-brand .logo-ar {
+      font-size: 1rem;
+      letter-spacing: 0;
+      direction: rtl;
+      display: block;
+    }
   }
 </style>
 </head>
@@ -840,7 +968,6 @@
     <li><a href="#vibe">About</a></li>
     <li><a href="#menu">Menu</a></li>
     <li><a href="#gaming">Gaming</a></li>
-    <li><a href="#events">Events</a></li>
     <li><a href="#contact">Visit Us</a></li>
   </ul>
   <button class="nav-cta" onclick="document.getElementById('contact').scrollIntoView({behavior:'smooth'})">Book Now</button>
@@ -848,7 +975,25 @@
 
 <!-- HERO -->
 <section class="hero" id="home">
-  <div class="hero-bg"></div>
+  <div class="hero-bg">
+    <svg style="display:none">
+      <defs>
+        <filter id="goo">
+          <feGaussianBlur in="SourceGraphic" stdDeviation="10" result="blur"/>
+          <feColorMatrix in="blur" mode="matrix" values="1 0 0 0 0  0 1 0 0 0  0 0 1 0 0  0 0 0 18 -8" result="goo"/>
+          <feBlend in="SourceGraphic" in2="goo"/>
+        </filter>
+      </defs>
+    </svg>
+    <div class="grad-blobs" id="grad-blobs">
+      <div class="grad-blob blob-1"></div>
+      <div class="grad-blob blob-2"></div>
+      <div class="grad-blob blob-3"></div>
+      <div class="grad-blob blob-4"></div>
+      <div class="grad-blob blob-5"></div>
+      <div class="blob-pointer" id="blob-pointer"></div>
+    </div>
+  </div>
   <div class="hero-grid"></div>
   <div class="hero-ornament"></div>
 
@@ -925,10 +1070,10 @@
   </div>
 
   <div class="menu-tabs">
-    <button class="menu-tab active" onclick="showTab('القهوة', this)">Coffee</button>
-    <button class="menu-tab" onclick="showTab('المشاريب الباردة', this)">Cold Drinks</button>
-    <button class="menu-tab" onclick="showTab('سناك', this)">Bites</button>
-    <button class="menu-tab" onclick="showTab('الاراكيل', this)">Shisha</button>
+    <button class="menu-tab active" onclick="showTab('coffee', this)">Coffee</button>
+    <button class="menu-tab" onclick="showTab('cold', this)">Cold Drinks</button>
+    <button class="menu-tab" onclick="showTab('food', this)">Bites</button>
+    <button class="menu-tab" onclick="showTab('shisha', this)">Shisha</button>
   </div>
 
   <div class="menu-grid" id="menu-items">
@@ -1055,61 +1200,6 @@
         <div class="g-tile-text">Kitchen</div>
       </div>
       <div class="g-label">Kitchen</div>
-    </div>
-  </div>
-</section>
-
-
-<!-- EVENTS -->
-<section class="events-section" id="events">
-  <div class="events-layout">
-    <div class="reveal">
-      <div class="section-label">What's On</div>
-      <h2 class="section-title">Events<br>& Tourneys</h2>
-      <div class="section-title-ar">فعاليات وبطولات</div>
-      <p class="section-desc" style="margin-top: 1rem;">From weekly gaming nights to latte art throwdowns — something's always happening at Wanase.</p>
-    </div>
-    <div class="event-list reveal">
-      <div class="event-item">
-        <div class="event-date"><div class="day">06</div><div class="month">Jun</div></div>
-        <div class="event-info">
-          <h4>FIFA Season Finals</h4>
-          <p>Knockout tournament · Top 16 players · Prizes worth 150K IQD</p>
-        </div>
-        <div class="event-tag gaming">Gaming</div>
-      </div>
-      <div class="event-item">
-        <div class="event-date"><div class="day">08</div><div class="month">Jun</div></div>
-        <div class="event-info">
-          <h4>Barista Showcase Night</h4>
-          <p>Watch our head barista craft signature specialty drinks live</p>
-        </div>
-        <div class="event-tag cafe">Cafe</div>
-      </div>
-      <div class="event-item">
-        <div class="event-date"><div class="day">13</div><div class="month">Jun</div></div>
-        <div class="event-info">
-          <h4>Valorant Squad Night</h4>
-          <p>Team of 5 · 3-hour block · Bring your squad, dominate the server</p>
-        </div>
-        <div class="event-tag gaming">Gaming</div>
-      </div>
-      <div class="event-item">
-        <div class="event-date"><div class="day">20</div><div class="month">Jun</div></div>
-        <div class="event-info">
-          <h4>Wanase Anniversary</h4>
-          <p>Special discounts, free entry, live DJ, and surprise prizes all day</p>
-        </div>
-        <div class="event-tag special">Special</div>
-      </div>
-      <div class="event-item">
-        <div class="event-date"><div class="day">27</div><div class="month">Jun</div></div>
-        <div class="event-info">
-          <h4>Retro Game Marathon</h4>
-          <p>Classic consoles only · 6-hour session · NES to PS2 era throwback</p>
-        </div>
-        <div class="event-tag gaming">Gaming</div>
-      </div>
     </div>
   </div>
 </section>
@@ -1247,6 +1337,25 @@ function showTab(tab, btn) {
 }
 
 showTab('coffee', document.querySelector('.menu-tab.active'));
+
+// Interactive gradient pointer
+(function() {
+  const hero = document.getElementById('home');
+  const pointer = document.getElementById('blob-pointer');
+  if (!hero || !pointer) return;
+  let curX = 0, curY = 0, tgX = 0, tgY = 0;
+  hero.addEventListener('mousemove', (e) => {
+    tgX = e.clientX;
+    tgY = e.clientY;
+  });
+  function animate() {
+    curX += (tgX - curX) / 20;
+    curY += (tgY - curY) / 20;
+    pointer.style.transform = `translate(${Math.round(curX)}px, ${Math.round(curY)}px)`;
+    requestAnimationFrame(animate);
+  }
+  animate();
+})();
 
 // Scroll reveal
 const revealEls = document.querySelectorAll('.reveal');
