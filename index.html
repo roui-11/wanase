@@ -1070,9 +1070,13 @@
   </div>
 
   <div class="menu-tabs">
-    <button class="menu-tab active" onclick="showTab('coffe', this)">المشروبات الساخنة</button>
+    <button class="menu-tab active" onclick="showTab('coffee', this)">Coffee</button>
+    <button class="menu-tab" onclick="showTab('cold', this)">Cold Drinks</button>
+    <button class="menu-tab" onclick="showTab('food', this)">Bites</button>
+    <button class="menu-tab" onclick="showTab('shisha', this)">Shisha</button>
+    <button class="menu-tab active" onclick="showTab('coffee', this)">المشروبات الساخنة</button>
     <button class="menu-tab" onclick="showTab('cold', this)">المشروبات الباردة</button>
-    <button class="menu-tab" onclick="showTab('snacks', this)">السناك</button>
+    <button class="menu-tab" onclick="showTab('food', this)">السناك</button>
     <button class="menu-tab" onclick="showTab('shisha', this)">الاراكيل</button>
   </div>
 
@@ -1207,7 +1211,7 @@
 
 <script>
 const menuData = {
-  coffe: [
+  coffee: [
     { en: 'Espresso', ar: 'إسبريسو', desc: 'Single or double shot, pure & bold', price: '2,500 IQD' },
     { en: 'Cappuccino', ar: 'كابتشينو', desc: 'Velvety microfoam, classic balance', price: '3,500 IQD' },
     { en: 'Flat White', ar: 'فلات وايت', desc: 'Double ristretto with silky milk', price: '4,000 IQD' },
@@ -1223,7 +1227,7 @@ const menuData = {
     { en: 'Energy Boost', ar: 'منشط الطاقة', desc: 'Espresso tonic with orange zest', price: '4,000 IQD' },
     { en: 'Strawberry Frappe', ar: 'فرابيه فراولة', desc: 'Blended, whipped cream, drizzle', price: '5,500 IQD' },
   ],
-  snacks: [
+  food: [
     { en: 'Gamer Burger', ar: 'برغر الجيمر', desc: 'Double smash patty, cheddar, caramelized onion', price: '9,000 IQD' },
     { en: 'Loaded Fries', ar: 'بطاطا محملة', desc: 'Parmesan, herbs, truffle aioli', price: '6,000 IQD' },
     { en: 'Club Sandwich', ar: 'كلوب ساندويتش', desc: 'Triple decker, chicken, avocado', price: '8,500 IQD' },
