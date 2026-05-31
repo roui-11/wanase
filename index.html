@@ -24,6 +24,9 @@
     --border: rgba(122, 85, 53, 0.2);
   }
 
+  html, body {
+    overflow-x: hidden;
+  }
   html { scroll-behavior: smooth; }
 
   body {
@@ -219,8 +222,8 @@
   .hero-badge {
     font-size: 0.7rem; font-weight: 700;
     letter-spacing: 0.35em; text-transform: uppercase;
-    color: var(--teal);
-    border: 1px solid rgba(0,201,167,0.3);
+    color: var(--gold);
+    border: 1px solid rgba(196,137,90,0.4);
     padding: 0.4rem 1.2rem;
     margin-bottom: 2rem;
     display: inline-block;
@@ -1057,17 +1060,22 @@
       justify-content: center;
       gap: 0;
     }
-    .hero-badge { margin-bottom: 0.6rem; padding: 0.3rem 1rem; font-size: 0.6rem; }
+    .hero-bg { position: absolute; }
+    .hero-badge { 
+      margin-bottom: 1.4rem; 
+      padding: 0.3rem 1rem; 
+      font-size: 0.6rem;
+    }
     .hero-title { font-size: clamp(2.8rem, 14vw, 5rem); }
     .hero-title-ar { font-size: clamp(1.2rem, 6vw, 1.8rem) !important; margin-top: 0.2rem; }
-    .hero-divider { margin: 0.6rem 0; }
+    .hero-divider { margin: 0.8rem 0; }
     .hero-sub { font-size: 0.9rem !important; line-height: 1.6 !important; margin: 0; }
-    .hero-buttons { margin-top: 1.2rem; }
+    .hero-buttons { margin-top: 1.2rem; flex-direction: column; align-items: center; }
     .hero-buttons .btn-primary { padding: 0.75rem 2rem; font-size: 0.8rem; }
     .hero-scroll { display: none; }
-    .hero-ornament { width: 160px; height: 160px; }
-    section { padding: 3.5rem 1.2rem; }
+    .hero-ornament { display: none; }
     nav { padding: 1rem 1.2rem; }
+    section { padding: 3.5rem 1.2rem; }
   }
 </style>
 </head>
