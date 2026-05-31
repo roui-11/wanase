@@ -945,7 +945,7 @@
     /* Hero Arabic subtitle */
     .hero-sub {
       font-size: clamp(0.95rem, 4vw, 1.1rem) !important;
-      line-height: 2.2 !important;
+      line-height: 1.8 !important;
       max-width: 90vw;
       text-align: center;
       direction: rtl;
@@ -1041,9 +1041,14 @@
     .footer-bottom { font-size: 0.68rem; }
 
     /* fix hero overflow on mobile */
-    .hero { padding: 0 1.2rem; min-height: 100svh; }
+    .hero { padding: 0 1.2rem; min-height: 100svh; max-height: 100svh; height: 100svh; }
     .hero-title { font-size: clamp(2.5rem, 13vw, 5rem); }
-    .hero-ornament { width: 200px; height: 200px; }
+    .hero-ornament { width: 180px; height: 180px; }
+    .hero-badge { margin-bottom: 1rem; }
+    .hero-title-ar { margin-top: 0.3rem; }
+    .hero-divider { margin: 1rem 0; }
+    .hero-buttons { margin-top: 1.5rem; }
+    .hero-scroll { bottom: 1rem; }
     section { padding: 3.5rem 1.2rem; }
     nav { padding: 1rem 1.2rem; }
   }
