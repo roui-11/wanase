@@ -47,9 +47,10 @@
     position: fixed; top: 0; left: 0; right: 0; z-index: 100;
     display: flex; align-items: center; justify-content: space-between;
     padding: 1.2rem 4rem;
-    background: rgba(28,15,7,0.92);
-    backdrop-filter: blur(16px);
+    background: rgba(28,15,7,0.97);
     border-bottom: 1px solid var(--border);
+    transition: transform 0.3s ease;
+    will-change: transform;
   }
 
   .nav-logo {
@@ -1282,6 +1283,18 @@ showTab('coffee', document.querySelector('.menu-tab.active'));
     requestAnimationFrame(animate);
   }
   animate();
+})();
+
+// Nav only visible at top of page
+(function() {
+  const nav = document.querySelector('nav');
+  window.addEventListener('scroll', () => {
+    if (window.scrollY < 80) {
+      nav.style.transform = 'translateY(0)';
+    } else {
+      nav.style.transform = 'translateY(-100%)';
+    }
+  }, { passive: true });
 })();
 
 // Pause blob animations when hero not visible (fixes scroll lag)
