@@ -113,6 +113,7 @@
     overflow: hidden;
     padding: 0 2rem;
     text-align: center;
+    contain: paint;
   }
 
   .hero-bg {
@@ -1281,6 +1282,22 @@ showTab('coffee', document.querySelector('.menu-tab.active'));
     requestAnimationFrame(animate);
   }
   animate();
+})();
+
+// Pause blob animations when hero not visible (fixes scroll lag)
+(function() {
+  const hero = document.getElementById('home');
+  const blobs = document.getElementById('grad-blobs');
+  if (!hero || !blobs) return;
+  const obs = new IntersectionObserver(entries => {
+    entries.forEach(e => {
+      blobs.style.animationPlayState = e.isIntersecting ? 'running' : 'paused';
+      blobs.querySelectorAll('.grad-blob').forEach(b => {
+        b.style.animationPlayState = e.isIntersecting ? 'running' : 'paused';
+      });
+    });
+  }, { threshold: 0 });
+  obs.observe(hero);
 })();
 
 // Scroll reveal
