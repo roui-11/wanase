@@ -2,7 +2,7 @@
 <html lang="ar" dir="ltr">
 <head>
 <meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
 <title>Wanase وناسة — Cafe & GameZone</title>
 <link href="https://fonts.googleapis.com/css2?family=Cinzel+Decorative:wght@400;700;900&family=Rajdhani:wght@300;400;500;600;700&family=Noto+Kufi+Arabic:wght@300;400;600;700;900&display=swap" rel="stylesheet">
 <style>
@@ -141,28 +141,28 @@
   }
 
   .blob-1 {
-    background: radial-gradient(circle at center, rgba(245, 237, 216, 0.07) 0, rgba(245, 237, 216, 0) 50%) no-repeat;
+    background: radial-gradient(circle at center, rgba(245, 237, 216, 0.13) 0, rgba(245, 237, 216, 0) 50%) no-repeat;
     animation: moveVertical 30s ease infinite;
     transform-origin: center center;
   }
   .blob-2 {
-    background: radial-gradient(circle at center, rgba(196, 137, 90, 0.15) 0, rgba(196, 137, 90, 0) 50%) no-repeat;
+    background: radial-gradient(circle at center, rgba(196, 137, 90, 0.28) 0, rgba(196, 137, 90, 0) 50%) no-repeat;
     animation: moveInCircle 20s reverse infinite;
     transform-origin: calc(50% - 400px);
   }
   .blob-3 {
-    background: radial-gradient(circle at center, rgba(245, 237, 216, 0.05) 0, rgba(245, 237, 216, 0) 50%) no-repeat;
+    background: radial-gradient(circle at center, rgba(245, 237, 216, 0.1) 0, rgba(245, 237, 216, 0) 50%) no-repeat;
     animation: moveInCircle 40s linear infinite;
     transform-origin: calc(50% + 400px);
   }
   .blob-4 {
-    background: radial-gradient(circle at center, rgba(180, 120, 60, 0.1) 0, rgba(180, 120, 60, 0) 50%) no-repeat;
+    background: radial-gradient(circle at center, rgba(180, 120, 60, 0.2) 0, rgba(180, 120, 60, 0) 50%) no-repeat;
     animation: moveHorizontal 40s ease infinite;
     transform-origin: calc(50% - 200px);
-    opacity: 0.5;
+    opacity: 0.7;
   }
   .blob-5 {
-    background: radial-gradient(circle at center, rgba(245, 237, 216, 0.04) 0, rgba(245, 237, 216, 0) 50%) no-repeat;
+    background: radial-gradient(circle at center, rgba(245, 237, 216, 0.08) 0, rgba(245, 237, 216, 0) 50%) no-repeat;
     animation: moveInCircle 20s ease infinite;
     transform-origin: calc(50% - 800px) calc(50% + 800px);
   }
@@ -170,9 +170,9 @@
     position: absolute;
     width: 100%; height: 100%;
     top: -50%; left: -50%;
-    background: radial-gradient(circle at center, rgba(245, 237, 216, 0.04) 0, rgba(245, 237, 216, 0) 50%) no-repeat;
+    background: radial-gradient(circle at center, rgba(245, 237, 216, 0.08) 0, rgba(245, 237, 216, 0) 50%) no-repeat;
     mix-blend-mode: hard-light;
-    opacity: 0.6;
+    opacity: 0.8;
     transition: transform 0.05s linear;
     pointer-events: none;
   }
@@ -446,36 +446,68 @@
   .menu-tabs {
     display: grid;
     grid-template-columns: repeat(4, 1fr);
-    gap: 1rem;
+    gap: 1.2rem;
     max-width: 1200px;
     margin: 2rem auto 3rem;
   }
   .menu-tab {
-    font-family: 'Rajdhani', sans-serif;
-    font-size: 0.85rem; font-weight: 700;
-    letter-spacing: 0.12em; text-transform: uppercase;
+    font-family: 'Cinzel Decorative', serif;
+    font-size: 0.72rem; font-weight: 700;
+    letter-spacing: 0.08em;
     background: #fff;
-    border: 1px solid rgba(122,85,53,0.2);
-    color: #7A5535;
-    padding: 1.5rem 1rem;
-    cursor: pointer; transition: all 0.3s;
+    border: 1.5px solid rgba(122,85,53,0.18);
+    color: #5C3A1E;
+    padding: 2rem 1rem 1.5rem;
+    cursor: pointer; transition: all 0.35s;
     display: flex; flex-direction: column;
-    align-items: center; gap: 0.6rem;
-    clip-path: polygon(0 0, calc(100% - 10px) 0, 100% 10px, 100% 100%, 10px 100%, 0 calc(100% - 10px));
+    align-items: center; justify-content: center;
+    gap: 0.5rem;
+    border-radius: 4px;
+    position: relative;
+    overflow: hidden;
+    text-transform: none;
+    border-right: 1.5px solid rgba(122,85,53,0.18);
   }
-  .menu-tab .tab-icon { font-size: 2rem; line-height: 1; }
+  .menu-tab::before {
+    content: '';
+    position: absolute; bottom: 0; left: 0; right: 0;
+    height: 3px;
+    background: #1C0F07;
+    transform: scaleX(0);
+    transition: transform 0.35s;
+  }
+  .menu-tab:hover::before { transform: scaleX(1); }
+  .menu-tab .tab-en {
+    font-family: 'Cinzel Decorative', serif;
+    font-size: 0.72rem;
+    color: #1C0F07;
+    letter-spacing: 0.06em;
+  }
+  .menu-tab .tab-ar {
+    font-family: 'Noto Kufi Arabic', sans-serif;
+    font-size: 1rem;
+    font-weight: 700;
+    letter-spacing: 0;
+    direction: rtl;
+    unicode-bidi: embed;
+    color: #5C3A1E;
+    line-height: 1.4;
+    word-spacing: 0.05em;
+  }
   .menu-tab:hover {
-    background: #E8D5B0;
-    border-color: rgba(122,85,53,0.45);
-    transform: translateY(-3px);
+    border-color: rgba(122,85,53,0.4);
+    background: #F0E2C4;
+    transform: translateY(-4px);
   }
   .menu-tab.active {
     background: #1C0F07;
-    color: #E8D5B0;
     border-color: #1C0F07;
-    transform: translateY(-3px);
-    box-shadow: 0 8px 20px rgba(28,15,7,0.18);
+    transform: translateY(-4px);
+    box-shadow: 0 10px 30px rgba(28,15,7,0.25);
   }
+  .menu-tab.active::before { transform: scaleX(0); }
+  .menu-tab.active .tab-en { color: #E8D5B0; }
+  .menu-tab.active .tab-ar { color: #C4895A; font-weight: 700; }
   .menu-header {
     text-align: center; margin-bottom: 2rem;
   }
@@ -837,56 +869,39 @@
   footer {
     background: #130A04;
     border-top: 1px solid rgba(196,137,90,0.2);
-    padding: 3rem 4rem 2rem;
+    padding: 2rem 4rem 1.5rem;
   }
-  .footer-inner {
-    display: grid; grid-template-columns: 1.5fr 1fr 1fr;
-    gap: 3rem; max-width: 1200px; margin: 0 auto 3rem;
+  .footer-simple {
+    max-width: 1200px; margin: 0 auto 1.5rem;
+    display: flex; justify-content: space-between; align-items: center;
+    gap: 1rem; flex-wrap: wrap;
   }
-  .footer-brand .logo-en {
+  .footer-left .logo-en {
     font-family: 'Cinzel Decorative', serif;
-    font-size: 1.4rem; font-weight: 700; color: var(--gold);
+    font-size: 1.2rem; font-weight: 700; color: var(--gold);
     letter-spacing: 0.1em;
   }
-  .footer-brand .logo-ar {
+  .footer-left .logo-ar {
     font-family: 'Noto Kufi Arabic', sans-serif;
-    font-size: 0.9rem; color: var(--gold-light); opacity: 0.6;
+    font-size: 0.85rem; color: var(--gold-light);
+    opacity: 0.6; direction: rtl; letter-spacing: 0;
   }
-  .footer-brand p {
-    font-size: 0.85rem; color: #A0784A;
-    line-height: 1.7; margin-top: 1rem; max-width: 250px;
-  }
-  .footer-col h5 {
-    font-family: 'Rajdhani', sans-serif;
-    font-size: 0.7rem; font-weight: 700;
-    letter-spacing: 0.3em; text-transform: uppercase;
-    color: var(--gold); margin-bottom: 1rem;
-  }
-  .footer-col ul { list-style: none; }
-  .footer-col ul li { margin-bottom: 0.5rem; }
-  .footer-col ul a {
-    text-decoration: none; font-size: 0.85rem;
-    color: #A0784A; transition: color 0.2s;
-  }
-  .footer-col ul a:hover { color: #E8D5B0; }
-
+  .footer-left p { font-size: 0.8rem; color: #A0784A; margin-top: 0.4rem; }
+  .footer-right { display: flex; gap: 0.8rem; align-items: center; }
   .footer-bottom {
     max-width: 1200px; margin: 0 auto;
     border-top: 1px solid rgba(196,137,90,0.15);
-    padding-top: 1.5rem;
+    padding-top: 1rem;
     display: flex; justify-content: space-between; align-items: center;
-    font-size: 0.75rem; color: #7A5535;
-    letter-spacing: 0.1em;
+    font-size: 0.72rem; color: #7A5535;
+    letter-spacing: 0.08em; flex-wrap: wrap; gap: 0.5rem;
   }
-
-  .social-icons { display: flex; gap: 0.8rem; }
   .social-icon {
     width: 36px; height: 36px;
     border: 1px solid rgba(196,137,90,0.3);
     display: flex; align-items: center; justify-content: center;
-    font-size: 1rem; cursor: pointer; transition: all 0.3s;
-    color: #A0784A;
-    text-decoration: none;
+    cursor: pointer; transition: all 0.3s;
+    color: #A0784A; text-decoration: none;
   }
   .social-icon:hover {
     border-color: var(--gold); color: var(--gold);
@@ -1016,11 +1031,22 @@
       line-height: 1.7;
     }
 
-    /* Menu tabs on mobile */
-    .menu-tab {
-      padding: 0.65rem 1.2rem;
-      font-size: 0.75rem;
-    }
+    .menu-tabs { grid-template-columns: repeat(2, 1fr); gap: 0.8rem; }
+    .menu-tab { padding: 1.4rem 0.8rem; }
+    .menu-tab .tab-en { font-size: 0.65rem; }
+    .menu-tab .tab-ar { font-size: 0.75rem; }
+
+    footer { padding: 1.5rem; }
+    .footer-simple { flex-direction: column; align-items: flex-start; gap: 1rem; }
+    .footer-bottom { font-size: 0.68rem; }
+
+    /* fix hero overflow on mobile */
+    .hero { padding: 0 1.2rem; min-height: 100svh; }
+    .hero-title { font-size: clamp(2.5rem, 13vw, 5rem); }
+    .hero-ornament { width: 200px; height: 200px; }
+    section { padding: 3.5rem 1.2rem; }
+    nav { padding: 1rem 1.2rem; }
+  }
   }
 </style>
 </head>
@@ -1095,10 +1121,22 @@
   </div>
 
   <div class="menu-tabs">
-    <button class="menu-tab active" onclick="showTab('coffee', this)">Coffee</button>
-    <button class="menu-tab" onclick="showTab('cold', this)">Cold Drinks</button>
-    <button class="menu-tab" onclick="showTab('food', this)">Bites</button>
-    <button class="menu-tab" onclick="showTab('shisha', this)">Shisha</button>
+    <button class="menu-tab active" onclick="showTab('coffee', this)">
+      <span class="tab-en">Coffee</span>
+      <span class="tab-ar">قهوة</span>
+    </button>
+    <button class="menu-tab" onclick="showTab('cold', this)">
+      <span class="tab-en">Cold Drinks</span>
+      <span class="tab-ar">مشروبات باردة</span>
+    </button>
+    <button class="menu-tab" onclick="showTab('food', this)">
+      <span class="tab-en">Bites</span>
+      <span class="tab-ar">أكل</span>
+    </button>
+    <button class="menu-tab" onclick="showTab('shisha', this)">
+      <span class="tab-en">Shisha</span>
+      <span class="tab-ar">شيشة</span>
+    </button>
   </div>
 
   <div class="menu-grid" id="menu-items">
@@ -1109,40 +1147,25 @@
 
 <!-- FOOTER -->
 <footer>
-  <div class="footer-inner">
-    <div class="footer-brand">
+  <div class="footer-simple">
+    <div class="footer-left">
       <div class="logo-en">WANASE</div>
       <div class="logo-ar">وناسة</div>
-      <p>Baghdad's finest Cafe — specialty coffee, cold drinks, snacks & shisha.</p>
-      <div class="social-icons" style="margin-top: 1.2rem;">
-        <a class="social-icon" href="https://www.instagram.com/wanase.iq" target="_blank" title="Instagram" rel="noopener noreferrer">
-          <svg width="20" height="20" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
-            <rect x="2" y="2" width="20" height="20" rx="5" ry="5" stroke="currentColor" stroke-width="2" fill="none"/>
-            <circle cx="12" cy="12" r="4" stroke="currentColor" stroke-width="2" fill="none"/>
-            <circle cx="17.5" cy="6.5" r="1.2" fill="currentColor"/>
-          </svg>
-        </a>
-        <a class="social-icon" href="https://www.tiktok.com/@wanase.iq" target="_blank" title="TikTok" rel="noopener noreferrer">
-          <svg width="20" height="20" viewBox="0 0 24 24" fill="currentColor" xmlns="http://www.w3.org/2000/svg">
-            <path d="M19.59 6.69a4.83 4.83 0 0 1-3.77-4.25V2h-3.45v13.67a2.89 2.89 0 0 1-2.88 2.5 2.89 2.89 0 0 1-2.89-2.89 2.89 2.89 0 0 1 2.89-2.89c.28 0 .54.04.79.1V9.01a6.32 6.32 0 0 0-.79-.05 6.34 6.34 0 0 0-6.34 6.34 6.34 6.34 0 0 0 6.34 6.34 6.34 6.34 0 0 0 6.33-6.34V8.69a8.18 8.18 0 0 0 4.78 1.52V6.75a4.85 4.85 0 0 1-1.01-.06z"/>
-          </svg>
-        </a>
-      </div>
+      <p>Baghdad's finest Cafe ☕ بغداد</p>
     </div>
-    <div class="footer-col">
-      <h5>Navigate</h5>
-      <ul>
-        <li><a href="#menu">Menu</a></li>
-      </ul>
-    </div>
-    <div class="footer-col">
-      <h5>Menu</h5>
-      <ul>
-        <li><a href="#">Coffee</a></li>
-        <li><a href="#">Cold Drinks</a></li>
-        <li><a href="#">Bites</a></li>
-        <li><a href="#">Shisha</a></li>
-      </ul>
+    <div class="footer-right">
+      <a class="social-icon" href="https://www.instagram.com/wanase.iq" target="_blank" title="Instagram" rel="noopener noreferrer">
+        <svg width="20" height="20" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+          <rect x="2" y="2" width="20" height="20" rx="5" ry="5" stroke="currentColor" stroke-width="2" fill="none"/>
+          <circle cx="12" cy="12" r="4" stroke="currentColor" stroke-width="2" fill="none"/>
+          <circle cx="17.5" cy="6.5" r="1.2" fill="currentColor"/>
+        </svg>
+      </a>
+      <a class="social-icon" href="https://www.tiktok.com/@wanase.iq" target="_blank" title="TikTok" rel="noopener noreferrer">
+        <svg width="20" height="20" viewBox="0 0 24 24" fill="currentColor" xmlns="http://www.w3.org/2000/svg">
+          <path d="M19.59 6.69a4.83 4.83 0 0 1-3.77-4.25V2h-3.45v13.67a2.89 2.89 0 0 1-2.88 2.5 2.89 2.89 0 0 1-2.89-2.89 2.89 2.89 0 0 1 2.89-2.89c.28 0 .54.04.79.1V9.01a6.32 6.32 0 0 0-.79-.05 6.34 6.34 0 0 0-6.34 6.34 6.34 6.34 0 0 0 6.34 6.34 6.34 6.34 0 0 0 6.33-6.34V8.69a8.18 8.18 0 0 0 4.78 1.52V6.75a4.85 4.85 0 0 1-1.01-.06z"/>
+        </svg>
+      </a>
     </div>
   </div>
   <div class="footer-bottom">
