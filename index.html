@@ -104,7 +104,7 @@
 
   /* ── HERO ── */
   .hero {
-    min-height: 100vh;
+    min-height: 100dvh;
     display: flex; flex-direction: column; align-items: center; justify-content: center;
     position: relative;
     overflow: hidden;
@@ -537,16 +537,23 @@
   .menu-item:hover { background: #231208; border-color: rgba(122,85,53,0.5); }
 
   .menu-info h4 {
-    font-family: 'Rajdhani', sans-serif;
-    font-size: 1.05rem; font-weight: 600;
-    color: #E8D5B0;
-    letter-spacing: 0.05em;
-    margin-bottom: 0.25rem;
+    display: flex; flex-direction: column; gap: 0.15rem;
+    margin-bottom: 0.3rem;
   }
   .menu-info h4 .name-ar {
     font-family: 'Noto Kufi Arabic', sans-serif;
+    font-size: 1.1rem; font-weight: 700;
+    color: #E8D5B0;
+    direction: rtl; unicode-bidi: embed;
+    letter-spacing: 0; line-height: 1.4;
+    display: block;
+    text-align: left;
+  }
+  .menu-info h4 .name-en {
+    font-family: 'Rajdhani', sans-serif;
     font-size: 0.75rem; font-weight: 400;
-    color: #A0784A;
+    color: #7A5535;
+    letter-spacing: 0.1em;
     display: block;
   }
   .menu-info p {
@@ -992,16 +999,16 @@
       display: block;
     }
 
-    /* Menu item Arabic names */
+    /* Menu item names */
     .menu-info h4 .name-ar {
       font-family: 'Noto Kufi Arabic', sans-serif;
-      direction: rtl;
-      unicode-bidi: embed;
-      letter-spacing: 0;
-      font-size: 0.85rem;
-      line-height: 1.8;
-      display: block;
-      word-break: keep-all;
+      direction: rtl; unicode-bidi: embed;
+      letter-spacing: 0; font-size: 1rem;
+      font-weight: 700; line-height: 1.5;
+      display: block; word-break: keep-all;
+    }
+    .menu-info h4 .name-en {
+      font-size: 0.7rem; color: #7A5535;
     }
 
     /* Menu section title */
@@ -1040,8 +1047,8 @@
     .footer-simple { flex-direction: column; align-items: flex-start; gap: 1rem; }
     .footer-bottom { font-size: 0.68rem; }
 
-    /* fix hero overflow on mobile */
-    .hero { padding: 6rem 1.2rem 2rem; min-height: 100dvh; height: 100dvh; max-height: none; }
+    /* fix hero on mobile */
+    .hero { padding: 5rem 1.2rem 2rem; min-height: 100dvh; height: 100dvh; max-height: none; overflow: hidden; }
     .hero-title { font-size: clamp(2.5rem, 13vw, 5rem); }
     .hero-ornament { width: 180px; height: 180px; }
     .hero-badge { margin-bottom: 1rem; }
@@ -1051,7 +1058,6 @@
     .hero-scroll { bottom: 1rem; }
     section { padding: 3.5rem 1.2rem; }
     nav { padding: 1rem 1.2rem; }
-  }
   }
 </style>
 </head>
@@ -1224,7 +1230,7 @@ function showTab(tab, btn) {
   container.innerHTML = items.map(item => `
     <div class="menu-item">
       <div class="menu-info">
-        <h4>${item.en} <span class="name-ar">${item.ar}</span></h4>
+        <h4><span class="name-ar">${item.ar}</span><span class="name-en">${item.en}</span></h4>
         <p>${item.desc}</p>
       </div>
       <div class="menu-price">${item.price}</div>
